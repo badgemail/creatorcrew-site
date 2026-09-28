@@ -1,0 +1,11 @@
+{
+  "siteName": "Creator Crew",
+  "domain": "creatorcrew.com.au",
+  "bookTitle": "The Creator Starter Kit: Content",
+  "publisher": "LJB Press",
+  "author": "Luke Badger",
+
+  "_comment_placeholders": "Values starting REPLACE_WITH_ are placeholders. The build warns while any remain. Fill them before launch.",
+  "buttondownUsername": "REPLACE_WITH_BUTTONDOWN_USERNAME",
+  "privacyContactEmail": "REPLACE_WITH_PRIVACY_CONTACT_EMAIL"
+}

@@ -1,0 +1,156 @@
+/* Creator Crew — site styles. Mobile first; brand from the book repo's
+   style/visual-style-guide.md (all-sans for Creator Crew digital assets:
+   Montserrat headings, Inter text). Self-hosted fonts, no external loads.
+
+   Contrast (WCAG): navy on off-white 15.3:1 (all text); Electric Blue on
+   off-white is 4.2:1, so it's used only for link underlines and focus
+   rings (UI: 3:1), never text; Coral is never text on off-white (2.9:1) —
+   only as a button fill with navy text (5.3:1) or as text on navy (5.3:1). */
+
+@font-face { font-family: "Inter"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/inter-400.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/inter-600.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/inter-700.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/montserrat-700.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal; font-display: swap; src: url("/fonts/montserrat-800.woff2") format("woff2"); }
+
+:root {
+  --navy: #0B1F3A;
+  --blue: #1E6FF0;
+  --coral: #FF5A36;
+  --lime: #7CC141;
+  --off-white: #F7F6F2;
+  --tint: #EDEBE4;
+  --text: var(--navy);
+  --bg: var(--off-white);
+  --wrap: 42rem;
+  --radius: 10px;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --display: "Montserrat", var(--sans);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- focus + skip link ---------- */
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+main:focus { outline: none; }
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 10;
+  background: var(--off-white); color: var(--navy);
+  padding: .6rem 1rem; border-radius: var(--radius); font-weight: 700;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- type ---------- */
+h1, h2, h3 { font-family: var(--display); line-height: 1.2; margin: 2rem 0 .75rem; }
+h1 { font-size: clamp(2rem, 7vw, 2.75rem); font-weight: 800; }
+h2 { font-size: clamp(1.4rem, 4.5vw, 1.75rem); font-weight: 800; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p, ul, ol { margin: 0 0 1rem; }
+ul, ol { padding-left: 1.25rem; }
+li { margin-bottom: .45rem; }
+a { color: var(--navy); text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 3px; }
+cite { font-style: italic; }
+.small { font-size: .9375rem; }
+.hint { font-size: .9375rem; margin: .35rem 0 0; }
+
+/* ---------- header ---------- */
+.site-header { background: var(--navy); color: var(--off-white); }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.25rem; padding-top: .75rem; padding-bottom: .75rem; max-width: 60rem; }
+.brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--off-white); text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.2rem; min-height: 44px; }
+.brand img { width: auto; height: 36px; }
+.nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem .9rem; }
+.nav li { margin: 0; }
+.nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--off-white); font-weight: 600; font-size: .95rem; text-decoration: none; border-bottom: 3px solid transparent; }
+.nav a:hover { border-bottom-color: var(--coral); }
+.nav a[aria-current="page"] { border-bottom-color: var(--lime); }
+
+/* ---------- hero ---------- */
+.hero { background: var(--navy); color: var(--off-white); padding: 1.5rem 0 2.5rem; }
+.hero h1 { margin-top: 1rem; color: var(--off-white); }
+.hero-icon { width: auto; height: 110px; }
+.tagline { font-family: var(--display); font-weight: 800; font-size: clamp(1.15rem, 4vw, 1.45rem); color: var(--coral); line-height: 1.35; }
+.lede { font-size: 1.125rem; }
+.hero a:not(.button) { color: var(--off-white); }
+
+/* ---------- buttons ---------- */
+.button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: .7rem 1.4rem;
+  background: var(--coral); color: var(--navy);
+  font: 700 1.0625rem/1.2 var(--sans);
+  border: 0; border-radius: 999px; text-decoration: none; cursor: pointer;
+}
+.button:hover { background: #ff7556; }
+.hero .button:focus-visible { outline-color: var(--lime); }
+
+/* ---------- prose / content pages ---------- */
+.prose { padding-top: .5rem; padding-bottom: 2.5rem; overflow-wrap: anywhere; }  /* long emails/URLs never force sideways scrolling */
+.prose > h1:first-child, .prose > .status + h1 { margin-top: 1.5rem; }
+.callout { background: var(--tint); border-left: 5px solid var(--coral); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.1rem .1rem; margin: 1.5rem 0; }
+.status { margin: 1.5rem 0 0; padding: .75rem 1rem; background: var(--navy); color: var(--off-white); font-weight: 700; border-radius: var(--radius); }
+.updated { margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--tint); font-size: .9375rem; }
+hr { border: 0; border-top: 2px solid var(--tint); margin: 2rem 0; }
+code { font-size: .95em; }
+
+/* ---------- pillar icons (one SVG, four evenly spaced icons) ---------- */
+.pillars { list-style: none; padding: 0; margin: 1.75rem 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.pillars li { margin: 0; display: flex; flex-direction: column; align-items: center; text-align: center; font-weight: 600; gap: .4rem; }
+.pillar-icon { width: 64px; height: 61px; background: url("/img/pillars.svg") no-repeat; background-size: 400% 100%; }
+.pillar-1 { background-position: 0% 0; }
+.pillar-2 { background-position: 33.333% 0; }
+.pillar-3 { background-position: 66.667% 0; }
+.pillar-4 { background-position: 100% 0; }
+
+/* ---------- sign-up ---------- */
+.signup { background: var(--tint); padding: 1rem 0 2.5rem; }
+.form { margin-top: 1.25rem; }
+.field { margin: 0 0 1.4rem; }
+fieldset.field { border: 0; padding: 0; min-width: 0; }
+label, legend { font-weight: 700; display: block; }
+legend { padding: 0; margin-bottom: .25rem; }
+.req, .opt { font-weight: 400; }
+input[type="email"], input[type="text"], select {
+  display: block; width: 100%; margin-top: .35rem;
+  min-height: 48px; padding: .6rem .8rem;
+  font: 400 1rem/1.4 var(--sans);   /* 16px: stops iOS zooming on focus */
+  color: var(--navy); background: #fff;
+  border: 2px solid var(--navy); border-radius: var(--radius);
+}
+select { appearance: auto; }
+.checks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 1rem; margin-top: .5rem; }
+.check { display: flex; align-items: flex-start; gap: .65rem; margin: .5rem 0; }
+.check input { flex: none; width: 1.4rem; height: 1.4rem; margin: .15rem 0 0; accent-color: var(--navy); }
+.check label { font-weight: 400; }
+.consent .check label { font-weight: 600; }
+
+/* ---------- footer ---------- */
+.site-footer { background: var(--navy); color: var(--off-white); padding: 1.5rem 0; font-size: .9375rem; }
+.site-footer a { color: var(--off-white); }
+
+/* ---------- wider screens ---------- */
+@media (min-width: 40rem) {
+  .pillars { grid-template-columns: repeat(4, 1fr); }
+  .checks { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .hero { padding: 2.5rem 0 3.5rem; }
+  .hero-icon { height: 150px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "creatorcrew-site",
+  "private": true,
+  "description": "Creator Crew companion site (creatorcrew.com.au) — static, Cloudflare Workers static assets.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  }
+}

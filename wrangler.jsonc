@@ -1,0 +1,30 @@
+// Cloudflare Workers — static assets only (no Worker script).
+// Docs: https://developers.cloudflare.com/workers/static-assets/
+{
+  "name": "creatorcrew-site",
+  "compatibility_date": "2026-09-01",
+
+  // `wrangler deploy` (and `wrangler dev`) run the build first.
+  "build": {
+    "command": "node build.mjs"
+  },
+
+  "assets": {
+    "directory": "./dist",
+    // Serve dist/404.html (with a 404 status) for unknown paths.
+    "not_found_handling": "404-page"
+  },
+
+  // Preview URL: https://creatorcrew-site.<your-subdomain>.workers.dev
+  "workers_dev": true
+
+  // LAUNCH ONLY — attach the real domain. Uncomment once the privacy
+  // notice has been professionally reviewed and the Buttondown username
+  // is filled in (see README, "Launch checklist"). Requires the
+  // creatorcrew.com.au zone to be in this Cloudflare account (it is:
+  // DNS is on Cloudflare). Remember the comma after "workers_dev": true.
+  // "routes": [
+  //   { "pattern": "creatorcrew.com.au", "custom_domain": true },
+  //   { "pattern": "www.creatorcrew.com.au", "custom_domain": true }
+  // ]
+}
