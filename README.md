@@ -313,8 +313,11 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 - [ ] Launch on Buttondown's free plan with the lean form (decided 28 September 2026); plan the upgrade and re-enable the parked fields at ~100 subscribers (see "Parked fields").
 - [x] `buttondownUsername` filled in `site.config.json`: `creatorcrew`
       (28 September 2026).
-- [ ] `privacyContactEmail` filled in `site.config.json`. `node build.mjs`
-      then prints no placeholder warnings.
+- [x] `privacyContactEmail` filled in `site.config.json`:
+      `privacy@creatorcrew.com.au` (28 September 2026). It uses Cloudflare
+      Email Routing to Luke's inbox, and was tested. `hello@creatorcrew.com.au`
+      also routes there (tested). `node build.mjs` now prints no
+      placeholder warnings.
 - [ ] Test sign-up end to end: confirmation email arrives, the address lands
       in Buttondown, unsubscribe works, deletion on request works.
 - [ ] Regulation Watch and Current Apps rechecked, and `updated:` dates set.
