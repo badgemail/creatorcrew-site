@@ -39,6 +39,8 @@ The email service **Buttondown** stores the list and sends the emails on our beh
 
 **[Reviewer]** Confirm Buttondown's legal entity and where it stores data (believed to be the United States). If data is stored overseas, add the Australian Privacy Principle 8 overseas-disclosure wording. Also check that describing a contracted service provider this way sits comfortably with the "never disclosed to a third party" commitment.
 
+**[Reviewer]** Check this notice against the sign-up form's small print too (home page, under the Sign up button): "You'll get an email to confirm your address. We use it only to send the Creator Crew update. We never sell or rent it, or share it with anyone except Buttondown, which sends the emails for us. Unsubscribe any time." The form names Buttondown as the one exception to "never share", so the notice's "never disclosed to anyone else" wording and the form should say the same thing.
+
 This website is hosted by Cloudflare, which processes standard technical information (such as IP addresses) to deliver the site and protect it from abuse. The site itself uses no analytics and no tracking cookies. **[Reviewer]** Confirm the Cloudflare settings in use and any cookies they set.
 
 ## How long it's kept

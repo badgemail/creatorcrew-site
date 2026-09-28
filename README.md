@@ -216,9 +216,12 @@ the same endpoint as Buttondown's own form at buttondown.com/creatorcrew.
   they can forward it to you."
 - **Consent box**, unticked: "Send me the free monthly Creator Crew
   update."
-- **Small print** under the button: "We use this address only to send the
-  Creator Crew update. We never sell, rent or share it. Unsubscribe any
-  time." It's followed by a link to the Privacy notice.
+- **Small print** under the button (revised 28 September 2026): "You'll
+  get an email to confirm your address. We use it only to send the Creator
+  Crew update. We never sell or rent it, or share it with anyone except
+  Buttondown, which sends the emails for us. Unsubscribe any time." It's
+  followed by a link to the Privacy notice. The privacy notice draft has a
+  **[Reviewer]** note to check the two agree.
 
 ### Parked fields: re-enable on a paid plan (at ~100 subscribers)
 

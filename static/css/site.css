@@ -64,6 +64,7 @@ a { color: var(--navy); text-decoration-color: var(--blue); text-decoration-thic
 a:hover { text-decoration-thickness: 3px; }
 cite { font-style: italic; }
 .small { font-size: .9375rem; }
+.nowrap { white-space: nowrap; }
 .hint { font-size: .9375rem; margin: .35rem 0 0; }
 
 /* ---------- header ---------- */
