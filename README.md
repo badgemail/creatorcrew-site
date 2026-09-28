@@ -205,6 +205,21 @@ script runs on this site.
 `embed=1` is also sent (a hidden technical flag, not a field). Both work
 on Buttondown's free plan, which caps at **100 subscribers**.
 
+**Buttondown username: `creatorcrew`** (confirmed 28 September 2026). The
+form posts to `https://buttondown.com/api/emails/embed-subscribe/creatorcrew`,
+the same endpoint as Buttondown's own form at buttondown.com/creatorcrew.
+
+**Form copy (28 September 2026):**
+- **Label:** "Parent or guardian's email" (plus "(required)").
+- **Helper text**, linked to the input with `aria-describedby`: "Creator
+  Crew goes to a parent's inbox. Under 18? Ask a parent to sign up, and
+  they can forward it to you."
+- **Consent box**, unticked: "Send me the free monthly Creator Crew
+  update."
+- **Small print** under the button: "We use this address only to send the
+  Creator Crew update. We never sell, rent or share it. Unsubscribe any
+  time." It's followed by a link to the Privacy notice.
+
 ### Parked fields: re-enable on a paid plan (at ~100 subscribers)
 
 The full field set in the book repo's `creator-crew/signup-data-handling.md`
@@ -277,8 +292,10 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 `static/css/site.css`, so nothing else is needed.
 
 **Before launch, in Buttondown:**
-- Put the username in `site.config.json` → `buttondownUsername`.
-- Keep **double opt-in (confirmation email) on**; the form promises it.
+- ~~Put the username in `site.config.json` → `buttondownUsername`.~~ Done:
+  `creatorcrew` (28 September 2026).
+- Keep **double opt-in (confirmation email) on**. The privacy notice
+  treats confirming that email as the record of consent.
 - **Retention:** the privacy notice promises data is kept only while the
   subscription is active, so **delete unsubscribed subscribers** rather
   than leaving them in the list.
@@ -291,9 +308,10 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.
 - [ ] Launch on Buttondown's free plan with the lean form (decided 28 September 2026); plan the upgrade and re-enable the parked fields at ~100 subscribers (see "Parked fields").
-- [ ] `buttondownUsername` and `privacyContactEmail` filled in
-      `site.config.json`. `node build.mjs` then prints no placeholder
-      warnings.
+- [x] `buttondownUsername` filled in `site.config.json`: `creatorcrew`
+      (28 September 2026).
+- [ ] `privacyContactEmail` filled in `site.config.json`. `node build.mjs`
+      then prints no placeholder warnings.
 - [ ] Test sign-up end to end: confirmation email arrives, the address lands
       in Buttondown, unsubscribe works, deletion on request works.
 - [ ] Regulation Watch and Current Apps rechecked, and `updated:` dates set.

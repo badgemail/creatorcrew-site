@@ -6,6 +6,6 @@
   "author": "Luke Badger",
 
   "_comment_placeholders": "Values starting REPLACE_WITH_ are placeholders. The build warns while any remain. Fill them before launch.",
-  "buttondownUsername": "REPLACE_WITH_BUTTONDOWN_USERNAME",
+  "buttondownUsername": "creatorcrew",
   "privacyContactEmail": "REPLACE_WITH_PRIVACY_CONTACT_EMAIL"
 }
