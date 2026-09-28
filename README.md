@@ -142,32 +142,88 @@ canonical address.
 
 The form on the home page posts straight to Buttondown's embed endpoint
 (`https://buttondown.com/api/emails/embed-subscribe/<username>`). No
-script runs on this site. The fields match
-`creator-crew/signup-data-handling.md` in the book repo **exactly**:
+script runs on this site.
 
-| On the form | Sent to Buttondown as | Buttondown feature |
-|---|---|---|
-| Parent or guardian's email (required) | `email` | all plans |
-| First name (optional) | `metadata__first_name` | **metadata — paid** |
-| State or territory (optional dropdown) | `metadata__state` | **metadata — paid** |
-| Interests: gaming, comedy, music, tutorials | `tag` = `interest-gaming` … | **tags — paid** |
-| "Send me the free monthly Creator Crew update" (unticked; must be ticked to submit) | not sent: it only unlocks the button; Buttondown's confirmation email records the consent | all plans |
-| "I'd also like to hear about new books from LJB Press" (unticked) | `tag` = `ljb-press-book-news` | **tags — paid** |
+### Live form: lean launch on the free plan (decided 28 September 2026)
 
-`embed=1` is also sent (a hidden technical flag, not a field).
+| On the form | Sent to Buttondown as |
+|---|---|
+| Parent or guardian's email (required) | `email` |
+| "Send me the free monthly Creator Crew update" (unticked; must be ticked to submit) | not sent: it only unlocks the button, and Buttondown's confirmation email records the consent |
 
-> **Gap (checked 28 September 2026):** Buttondown's docs mark subscriber
-> **metadata** and **tags** as paid features, and the free plan is capped
-> at 100 subscribers. On the free plan, only the email would be kept.
-> First name, state, interests and the book-news opt-in need a paid
-> plan (tagging is listed as a ~US$9/month add-on). No workaround is
-> built. Decide the plan before launch.
+`embed=1` is also sent (a hidden technical flag, not a field). Both work
+on Buttondown's free plan, which caps at **100 subscribers**.
+
+### Parked fields: re-enable on a paid plan (at ~100 subscribers)
+
+The full field set in the book repo's `creator-crew/signup-data-handling.md`
+comes back when Creator Crew moves to a paid Buttondown plan, which it
+needs at ~100 subscribers anyway. These fields need Buttondown's paid
+**metadata** (first name, state) and **tags** (interests, book news)
+features. On the free plan Buttondown wouldn't keep them, so they're off
+the live form.
+
+**To re-enable:**
+1. Upgrade Buttondown to a plan with metadata and tags.
+2. Update the privacy notice (`content/privacy.md`) to list the extra
+   fields and what each is for. The notice promises this happens
+   **before** the form changes.
+3. Paste the markup below into `src/home.html`. It goes after the email
+   field, and the book-news box goes inside the "Your choice" fieldset,
+   whose legend becomes "Your choices".
+4. Update `signup-data-handling.md` in the book repo, and add a
+   Decisions log entry.
+
+```html
+<!-- RE-ENABLE ON PAID PLAN (at ~100 subscribers): optional fields -->
+<div class="field">
+  <label for="first-name">Your first name <span class="opt">(optional)</span></label>
+  <input id="first-name" name="metadata__first_name" type="text" autocomplete="given-name" maxlength="60" aria-describedby="first-name-hint">
+  <p class="hint" id="first-name-hint">Only used to say hello in the email.</p>
+</div>
+
+<div class="field">
+  <label for="state">State or territory <span class="opt">(optional)</span></label>
+  <select id="state" name="metadata__state" aria-describedby="state-hint">
+    <option value="">Prefer not to say</option>
+    <option value="ACT">Australian Capital Territory</option>
+    <option value="NSW">New South Wales</option>
+    <option value="NT">Northern Territory</option>
+    <option value="QLD">Queensland</option>
+    <option value="SA">South Australia</option>
+    <option value="TAS">Tasmania</option>
+    <option value="VIC">Victoria</option>
+    <option value="WA">Western Australia</option>
+  </select>
+  <p class="hint" id="state-hint">Only used to flag rules that differ between states — like the NSW point in Chapter 10. We never ask for a suburb or address.</p>
+</div>
+
+<fieldset class="field" aria-describedby="interests-hint">
+  <legend>Interests <span class="opt">(optional)</span></legend>
+  <p class="hint" id="interests-hint">Only used to choose which app updates lead each month's email.</p>
+  <div class="checks">
+    <div class="check"><input id="i-gaming" type="checkbox" name="tag" value="interest-gaming"><label for="i-gaming">Gaming</label></div>
+    <div class="check"><input id="i-comedy" type="checkbox" name="tag" value="interest-comedy"><label for="i-comedy">Comedy</label></div>
+    <div class="check"><input id="i-music" type="checkbox" name="tag" value="interest-music"><label for="i-music">Music</label></div>
+    <div class="check"><input id="i-tutorials" type="checkbox" name="tag" value="interest-tutorials"><label for="i-tutorials">Tutorials</label></div>
+  </div>
+</fieldset>
+
+<!-- RE-ENABLE ON PAID PLAN: second consent box, inside the consent fieldset -->
+<div class="check">
+  <input id="consent-books" type="checkbox" name="tag" value="ljb-press-book-news">
+  <label for="consent-books">I'd also like to hear about new books from LJB Press.</label>
+</div>
+<!-- …and change that fieldset's hint to: "Both boxes start unticked. The
+     first is needed to sign up; the second is entirely separate and optional." -->
+```
+
+The CSS for all of this (`.checks`, `.check`, `select`) is still in
+`static/css/site.css`, so nothing else is needed.
 
 **Before launch, in Buttondown:**
 - Put the username in `site.config.json` → `buttondownUsername`.
 - Keep **double opt-in (confirmation email) on**; the form promises it.
-- Tags are created automatically on first use. Only email people tagged
-  `ljb-press-book-news` about new books.
 - **Retention:** the privacy notice promises data is kept only while the
   subscription is active, so **delete unsubscribed subscribers** rather
   than leaving them in the list.
@@ -179,12 +235,12 @@ script runs on this site. The fields match
 - [ ] `status:` and `noindex:` lines removed from `content/privacy.md`.
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.
-- [ ] Buttondown plan chosen, with the features the form needs (see above).
+- [ ] Launch on Buttondown's free plan with the lean form (decided 28 September 2026); plan the upgrade and re-enable the parked fields at ~100 subscribers (see "Parked fields").
 - [ ] `buttondownUsername` and `privacyContactEmail` filled in
       `site.config.json`. `node build.mjs` then prints no placeholder
       warnings.
-- [ ] Test sign-up end to end: confirmation email arrives, fields and tags
-      land in Buttondown, unsubscribe works, deletion on request works.
+- [ ] Test sign-up end to end: confirmation email arrives, the address lands
+      in Buttondown, unsubscribe works, deletion on request works.
 - [ ] Regulation Watch and Current Apps rechecked, and `updated:` dates set.
 - [ ] Custom domain attached (above) and `www` redirected.
 

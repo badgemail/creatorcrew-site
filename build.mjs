@@ -144,6 +144,9 @@ for (const page of PAGES) {
     .replace("{{nav}}", nav(page.path))
     .replace("{{content}}", fill(body)));
 
+  // Internal notes live in HTML comments in src/; never ship them.
+  const shipped = html.replace(/<!--[\s\S]*?-->\n?/g, "");
+
   // vocabulary check on the visible copy only (tags, URLs and comments stripped)
   const visible = html.replace(/<!--[\s\S]*?-->/g, " ").replace(/<(script|style)[\s\S]*?<\/\1>/g, " ").replace(/<[^>]+>/g, " ");
   for (const [re, label] of BANNED) {
@@ -156,7 +159,7 @@ for (const page of PAGES) {
 
   const outPath = join(DIST, page.out);
   mkdirSync(dirname(outPath), { recursive: true });
-  writeFileSync(outPath, html);
+  writeFileSync(outPath, shipped);
 }
 
 writeFileSync(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: https://${cfg.domain}/sitemap.xml\n`);

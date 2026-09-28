@@ -32,68 +32,32 @@
 <section class="signup" id="sign-up" aria-labelledby="signup-heading">
   <div class="wrap">
     <h2 id="signup-heading">Get the monthly update</h2>
-    <p>This form is for a <strong>parent or guardian</strong> to fill in. It asks for as little as possible, and says exactly what each answer is used for.</p>
+    <p>This form is for a <strong>parent or guardian</strong> to fill in. It asks for one thing: an email address.</p>
 
     <!--
-      BUTTONDOWN EMBED FORM — posts straight to Buttondown; no script on this site.
-      Username comes from site.config.json ("buttondownUsername").
-      First name and state use Buttondown subscriber metadata, and the
-      interests and book-news boxes use Buttondown tags: both are PAID
-      Buttondown features (see README, "Buttondown"). Fields match
-      creator-crew/signup-data-handling.md in the book repo exactly — do not
-      add fields without updating that document and the privacy notice.
+      BUTTONDOWN EMBED FORM (launch: Buttondown free plan) — posts straight to
+      Buttondown; no script on this site. Username: site.config.json.
+      LEAN LAUNCH FORM (decided 28 September 2026): parent email + the monthly-
+      update consent box only. First name, state/territory, interests and the
+      LJB Press book-news box are PARKED — re-enable on a paid Buttondown plan
+      (at ~100 subscribers). The ready-to-paste markup is in README.md,
+      "Parked fields". Don't add fields without updating the book repo's
+      creator-crew/signup-data-handling.md and the privacy notice first.
     -->
     <form class="form" action="https://buttondown.com/api/emails/embed-subscribe/{{buttondownUsername}}" method="post">
       <div class="field">
         <label for="email">Parent or guardian's email <span class="req">(required)</span></label>
         <input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-hint">
-        <p class="hint" id="email-hint">Your own email address — it's how the update reaches you.</p>
+        <p class="hint" id="email-hint">Your own email address — it's how the update reaches you. It's the only thing this form asks for.</p>
       </div>
-
-      <div class="field">
-        <label for="first-name">Your first name <span class="opt">(optional)</span></label>
-        <input id="first-name" name="metadata__first_name" type="text" autocomplete="given-name" maxlength="60" aria-describedby="first-name-hint">
-        <p class="hint" id="first-name-hint">Only used to say hello in the email.</p>
-      </div>
-
-      <div class="field">
-        <label for="state">State or territory <span class="opt">(optional)</span></label>
-        <select id="state" name="metadata__state" aria-describedby="state-hint">
-          <option value="">Prefer not to say</option>
-          <option value="ACT">Australian Capital Territory</option>
-          <option value="NSW">New South Wales</option>
-          <option value="NT">Northern Territory</option>
-          <option value="QLD">Queensland</option>
-          <option value="SA">South Australia</option>
-          <option value="TAS">Tasmania</option>
-          <option value="VIC">Victoria</option>
-          <option value="WA">Western Australia</option>
-        </select>
-        <p class="hint" id="state-hint">Only used to flag rules that differ between states — like the NSW point in Chapter 10. We never ask for a suburb or address.</p>
-      </div>
-
-      <fieldset class="field" aria-describedby="interests-hint">
-        <legend>Interests <span class="opt">(optional)</span></legend>
-        <p class="hint" id="interests-hint">Only used to choose which app updates lead each month's email.</p>
-        <div class="checks">
-          <div class="check"><input id="i-gaming" type="checkbox" name="tag" value="interest-gaming"><label for="i-gaming">Gaming</label></div>
-          <div class="check"><input id="i-comedy" type="checkbox" name="tag" value="interest-comedy"><label for="i-comedy">Comedy</label></div>
-          <div class="check"><input id="i-music" type="checkbox" name="tag" value="interest-music"><label for="i-music">Music</label></div>
-          <div class="check"><input id="i-tutorials" type="checkbox" name="tag" value="interest-tutorials"><label for="i-tutorials">Tutorials</label></div>
-        </div>
-      </fieldset>
 
       <fieldset class="field consent">
-        <legend>Your choices</legend>
+        <legend>Your choice</legend>
         <div class="check">
           <input id="consent-update" type="checkbox" required>
           <label for="consent-update">Send me the free monthly Creator Crew update.</label>
         </div>
-        <div class="check">
-          <input id="consent-books" type="checkbox" name="tag" value="ljb-press-book-news">
-          <label for="consent-books">I'd also like to hear about new books from LJB Press.</label>
-        </div>
-        <p class="hint">Both boxes start unticked. The first is needed to sign up; the second is entirely separate and optional.</p>
+        <p class="hint">The box starts unticked — tick it to sign up.</p>
       </fieldset>
 
       <input type="hidden" name="embed" value="1">
