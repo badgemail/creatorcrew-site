@@ -1,12 +1,12 @@
 ---
 title: Current Apps & AI Tools
-description: The apps and AI tools from The Creator Starter Kit, with what they do and don't need right now — kept current between editions.
+description: The apps and AI tools from The Creator Starter Kit: Content, with what they do and don't need right now — kept current between editions.
 updated: 28 September 2026 (app checks on Android, 26 September 2026)
 ---
 
 # Current Apps & AI Tools
 
-The book teaches skills that don't go out of date. The apps it uses do change — features move, free tiers shift, new tools arrive. This page is where that gets kept current. Everything here is **as at the date at the bottom of the page**.
+*The Creator Starter Kit: Content* teaches skills that don't go out of date. The apps it uses do change — features move, free tiers shift, new tools arrive. This page is where that gets kept current. Everything here is **as at the date at the bottom of the page**.
 
 ## Editing
 

@@ -1,13 +1,23 @@
 # Creator Crew — companion site (creatorcrew.com.au)
 
 The website for **Creator Crew**, the free monthly update that comes with
-*The Creator Starter Kit: Content* (Luke Badger, LJB Press). It holds:
+every title in *The Creator Starter Kit* series (Luke Badger, LJB Press).
+Creator Crew is series-wide: each title is a **specialisation** with its
+own section of the site. *Content* is available now; *Music* and *Apps &
+Games* are coming soon (working titles, no dates). Series titles are never
+called "editions": that word is reserved for revisions of a title.
 
-- **Home**: what Creator Crew is, and the sign-up form (Buttondown).
-- **Current Apps & AI Tools**: `content/current-apps.md`.
-- **Regulation Watch**: `content/regulation-watch.md`.
-- **Privacy notice**: `content/privacy.md`. **DRAFT, pending
-  professional review.**
+It holds:
+
+- **Home** (`/`): what Creator Crew is, the Specialisations, and the
+  sign-up form (Buttondown).
+- **Content** (`/content/`): `pages/content/index.md`, with
+  - **Current Apps & AI Tools** (`/content/apps-and-ai-tools/`):
+    `pages/content/apps-and-ai-tools.md`.
+- **Regulation Watch** (`/regulation-watch/`, series-wide):
+  `pages/regulation-watch.md`.
+- **Privacy notice** (`/privacy/`, series-wide): `pages/privacy.md`.
+  **DRAFT, pending professional review.**
 
 It's a plain static site: no framework and no JavaScript on the page. It's
 hosted on **Cloudflare Workers with static assets** (not Pages, not Wix,
@@ -23,10 +33,12 @@ repo (`CreatorStarterKit`: `style/visual-style-guide.md`,
 ## What's where
 
 ```
-content/           ← the three editable pages, in markdown
-  current-apps.md
-  regulation-watch.md
-  privacy.md
+pages/             ← the editable pages, in markdown; folders mirror URLs
+  content/         ← the Content specialisation (/content/…)
+    index.md
+    apps-and-ai-tools.md
+  regulation-watch.md   ← series-wide
+  privacy.md            ← series-wide
 src/
   layout.html      ← shared header, nav, footer
   home.html        ← home page, including the sign-up form
@@ -36,6 +48,7 @@ static/            ← copied to the site as-is
   fonts/           ← self-hosted Montserrat + Inter (WOFF2, Latin subset) + OFL licences
   img/             ← Crew icon, pillar icons
   _headers         ← security + caching headers (Cloudflare reads this)
+  _redirects       ← old URLs → new ones (Cloudflare reads this)
 site.config.json   ← site-wide values, including the placeholders to fill
 build.mjs          ← the build: no dependencies, Node 18+
 wrangler.jsonc     ← Cloudflare Workers config (static assets only)
@@ -45,7 +58,7 @@ wrangler.jsonc     ← Cloudflare Workers config (static assets only)
 
 ## Editing content
 
-Edit the markdown files in `content/`. Each starts with a short header:
+Edit the markdown files in `pages/`. Each starts with a short header:
 
 ```
 ---
@@ -86,6 +99,31 @@ Anything fancier needs a change to `build.mjs`.
 
 To change the site name, domain or placeholders, edit
 `site.config.json`.
+
+### Site structure: specialisations and stable URLs
+
+- **Specialisation pages sit under their section**:
+  `/content/apps-and-ai-tools/` and so on. **Regulation Watch** and
+  **Privacy** are series-wide and stay at the top level.
+- **Adding a page to a specialisation**: create
+  `pages/<section>/<page>.md` and add it to `PAGES` in `build.mjs` with
+  `section: "/<section>/"`. That gives it the breadcrumb, and highlights
+  its section in the nav. Link it from the section's `index.md`.
+- **Launching a new specialisation** (e.g. Music, when announced):
+  1. Add `pages/music/index.md` and its pages.
+  2. Add the section to `PAGES` with `nav: "Music"`.
+  3. On Home, change its card from "Coming soon" to "Available now" and
+     link it.
+  4. Add its option to the interests field, if that field is live.
+  Use the published title, and no dates until they're firm.
+- **Never break a URL that's been shared** (in print, email or links). When
+  a page moves, add a line to `static/_redirects` (`/old/ /new/ 301`) and
+  never remove it. `/current-apps/` → `/content/apps-and-ai-tools/` is
+  the first, from 28 September 2026. It was tested on the local Workers
+  runtime (`wrangler dev`): both `/current-apps` and `/current-apps/`
+  return 301 to the new page, and `_redirects` itself isn't served.
+- **The book prints one address**: the `[CREW URL]` placeholder in the
+  book repo. Once that's printed, that URL is permanent.
 
 ## Build and preview locally
 
@@ -173,12 +211,13 @@ The full field set in the book repo's `creator-crew/signup-data-handling.md`
 comes back when Creator Crew moves to a paid Buttondown plan, which it
 needs at ~100 subscribers anyway. These fields need Buttondown's paid
 **metadata** (first name, state) and **tags** (interests, book news)
-features. On the free plan Buttondown wouldn't keep them, so they're off
+features. **Interests map to the series' specialisations** (Content,
+Music, Apps & Games), not to topics. On the free plan Buttondown wouldn't keep them, so they're off
 the live form.
 
 **To re-enable:**
 1. Upgrade Buttondown to a plan with metadata and tags.
-2. Update the privacy notice (`content/privacy.md`) to list the extra
+2. Update the privacy notice (`pages/privacy.md`) to list the extra
    fields and what each is for. The notice promises this happens
    **before** the form changes.
 3. Paste the markup below into `src/home.html`. It goes after the email
@@ -211,14 +250,17 @@ the live form.
   <p class="hint" id="state-hint">Only used to flag rules that differ between states — like the NSW point in Chapter 10. We never ask for a suburb or address.</p>
 </div>
 
+<!-- Interests = the series' specialisations (decided 28 September 2026).
+     One box per specialisation on the Home page at the time: include a
+     "Coming soon" one only if its card is still up, and add a box when a
+     new specialisation is announced. Tag values are stable — never rename one. -->
 <fieldset class="field" aria-describedby="interests-hint">
   <legend>Interests <span class="opt">(optional)</span></legend>
-  <p class="hint" id="interests-hint">Only used to choose which app updates lead each month's email.</p>
+  <p class="hint" id="interests-hint">Which Creator Starter Kit specialisations you'd like first in each month's email.</p>
   <div class="checks">
-    <div class="check"><input id="i-gaming" type="checkbox" name="tag" value="interest-gaming"><label for="i-gaming">Gaming</label></div>
-    <div class="check"><input id="i-comedy" type="checkbox" name="tag" value="interest-comedy"><label for="i-comedy">Comedy</label></div>
+    <div class="check"><input id="i-content" type="checkbox" name="tag" value="interest-content"><label for="i-content">Content</label></div>
     <div class="check"><input id="i-music" type="checkbox" name="tag" value="interest-music"><label for="i-music">Music</label></div>
-    <div class="check"><input id="i-tutorials" type="checkbox" name="tag" value="interest-tutorials"><label for="i-tutorials">Tutorials</label></div>
+    <div class="check"><input id="i-apps-games" type="checkbox" name="tag" value="interest-apps-and-games"><label for="i-apps-games">Apps &amp; Games</label></div>
   </div>
 </fieldset>
 
@@ -245,7 +287,7 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 
 - [ ] Privacy notice professionally reviewed, and the **[Reviewer]** notes
       resolved and removed.
-- [ ] `status:` and `noindex:` lines removed from `content/privacy.md`.
+- [ ] `status:` and `noindex:` lines removed from `pages/privacy.md`.
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.
 - [ ] Launch on Buttondown's free plan with the lean form (decided 28 September 2026); plan the upgrade and re-enable the parked fields at ~100 subscribers (see "Parked fields").

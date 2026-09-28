@@ -1,0 +1,5 @@
+# Cloudflare Workers static assets: moved pages keep their old URLs working.
+# Format: <old path> <new path> <status>. Never delete a line once a URL has
+# been shared anywhere (print, email, links).
+/current-apps /content/apps-and-ai-tools/ 301
+/current-apps/ /content/apps-and-ai-tools/ 301

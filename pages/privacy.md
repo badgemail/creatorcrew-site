@@ -10,11 +10,11 @@ noindex: true
 
 > **DRAFT — pending professional review.** This notice was drafted from Creator Crew's data-handling commitments and has not yet been checked by a privacy professional. Notes marked **[Reviewer]** are open questions for that review and will be removed before launch.
 
-Creator Crew is the free monthly update for readers of *The Creator Starter Kit: Content*, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
+Creator Crew is the free monthly update for readers of every title in *The Creator Starter Kit* series, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
 
 ## Who fills in the form
 
-The sign-up form is for a **parent or guardian**. It's their email address the update goes to, and nothing on the form asks for information about the young person reading the book.
+The sign-up form is for a **parent or guardian**. It's their email address the update goes to, and nothing on the form asks for information about the young person reading the books.
 
 ## What we collect, and why
 

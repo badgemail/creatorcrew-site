@@ -2,7 +2,8 @@
 //
 //   node build.mjs
 //
-// - content/*.md  -> content pages (a small, deliberate markdown subset)
+// - pages/**/*.md -> content pages (a small, deliberate markdown subset);
+//                    folders mirror URLs: pages/content/ -> /content/
 // - src/*.html    -> hand-written pages (home, 404)
 // - static/       -> copied as-is (fonts, images, css, _headers, favicons)
 // - site.config.json values are substituted as {{key}} into pages
@@ -21,11 +22,18 @@ const cfg = JSON.parse(readFileSync(join(ROOT, "site.config.json"), "utf8"));
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
 
 // ---------- pages (order = nav order) ----------
+// Creator Crew covers the whole series. Each title is a specialisation with
+// its own section (/content/, later /music/, /apps-and-games/); pages in a
+// section set `section` to its landing path, which gives them a breadcrumb
+// and highlights the section in the nav. Regulation Watch and Privacy are
+// series-wide, at the top level. Moved pages keep their old URL working
+// through static/_redirects.
 const PAGES = [
   { src: "src/home.html", out: "index.html", path: "/", nav: "Home", title: null },
-  { src: "content/current-apps.md", out: "current-apps/index.html", path: "/current-apps/", nav: "Current Apps & AI Tools" },
-  { src: "content/regulation-watch.md", out: "regulation-watch/index.html", path: "/regulation-watch/", nav: "Regulation Watch" },
-  { src: "content/privacy.md", out: "privacy/index.html", path: "/privacy/", nav: "Privacy" },
+  { src: "pages/content/index.md", out: "content/index.html", path: "/content/", nav: "Content" },
+  { src: "pages/content/apps-and-ai-tools.md", out: "content/apps-and-ai-tools/index.html", path: "/content/apps-and-ai-tools/", section: "/content/" },
+  { src: "pages/regulation-watch.md", out: "regulation-watch/index.html", path: "/regulation-watch/", nav: "Regulation Watch" },
+  { src: "pages/privacy.md", out: "privacy/index.html", path: "/privacy/", nav: "Privacy" },
   { src: "src/404.html", out: "404.html", path: null, title: "Page not found", noindex: true },
 ];
 
@@ -113,8 +121,14 @@ copyDir(join(ROOT, "static"), DIST);
 
 const cssHash = createHash("sha256").update(readFileSync(join(DIST, "css", "site.css"))).digest("hex").slice(0, 10);
 const layout = read("src/layout.html");
-const nav = (current) => PAGES.filter((p) => p.nav).map((p) =>
-  `<li><a href="${p.path}"${p.path === current ? ' aria-current="page"' : ""}>${esc(p.nav)}</a></li>`).join("");
+const nav = (page) => PAGES.filter((p) => p.nav).map((p) => {
+  const cur = p.path === page.path ? ' aria-current="page"' : p.path === page.section ? ' aria-current="true"' : "";
+  return `<li><a href="${p.path}"${cur}>${esc(p.nav)}</a></li>`;
+}).join("");
+const crumbs = (page) => {
+  const parent = page.section && PAGES.find((p) => p.path === page.section);
+  return parent ? `<nav class="crumbs" aria-label="Breadcrumb"><a href="${parent.path}">${esc(parent.nav)}</a></nav>` : "";
+};
 
 const problems = [], warnings = [], indexed = [];
 const BANNED = [
@@ -129,19 +143,19 @@ for (const page of PAGES) {
     meta = m;
     const updated = meta.updated ? `<p class="updated">Last checked: ${esc(meta.updated)}</p>` : "";
     const draft = meta.status ? `<p class="status">${esc(meta.status)}</p>` : "";
-    body = `<article class="wrap prose">${draft}${markdown(md)}${updated}</article>`;
+    body = `<article class="wrap prose">${draft}${crumbs(page)}${markdown(md)}${updated}</article>`;
   } else {
     body = read(page.src);
   }
-  const title = page.title === null ? `${cfg.siteName} — the companion update for ${cfg.bookTitle}`
+  const title = page.title === null ? `${cfg.siteName} — the companion update for ${cfg.seriesTitle}`
     : `${meta.title || page.title || page.nav} — ${cfg.siteName}`;
   const html = fill(layout
     .replace("{{page_title}}", esc(title))
-    .replace("{{description}}", esc(meta.description || "Free monthly updates for readers of The Creator Starter Kit: Content — apps, AI tools and Australian rules, kept current between editions."))
+    .replace("{{description}}", esc(meta.description || `Free monthly updates for readers of ${cfg.seriesTitle} series — apps, AI tools and Australian rules, kept current between editions.`))
     .replace("{{canonical}}", page.path ? `<link rel="canonical" href="https://${cfg.domain}${page.path}">` : "")
     .replace("{{robots}}", page.noindex || meta.noindex === "true" ? '<meta name="robots" content="noindex">' : "")
     .replace("{{css_href}}", `/css/site.css?v=${cssHash}`)
-    .replace("{{nav}}", nav(page.path))
+    .replace("{{nav}}", nav(page))
     .replace("{{content}}", fill(body)));
 
   // Internal notes live in HTML comments in src/; never ship them.
