@@ -114,11 +114,24 @@ npx wrangler deploy     # builds and uploads; prints the workers.dev URL
 
 1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Import a
    repository** → connect GitHub and pick `creatorcrew-site`.
-2. **Build command:** `node build.mjs` · **Deploy command:** `npx wrangler deploy`
-   (the defaults are usually right; the project name must match
-   `"name"` in `wrangler.jsonc`, which is `creatorcrew-site`).
+2. **Build command:** leave it **empty (None)**. **Deploy command:**
+   `npx wrangler deploy`. The project name must match `"name"` in
+   `wrangler.jsonc`, which is `creatorcrew-site`.
 3. Save. Every push to `main` then builds and deploys, and pull requests
    get preview URLs.
+
+**How the build runs on Cloudflare** (verified 28 September 2026 with
+`wrangler deploy --dry-run` on a clean export with no `dist/`):
+- `dist/` is **not committed** (it's in `.gitignore`).
+- `wrangler deploy` runs `node build.mjs` itself, because `"build"` in
+  `wrangler.jsonc` tells it to. Every deploy regenerates the markdown
+  pages and re-runs the vocabulary check; no dashboard build command is
+  needed. (Entering `node build.mjs` there as well is harmless: it just
+  builds twice.)
+- **A banned word stops the deploy.** `build.mjs` exits 1 and empties
+  `dist/`. Wrangler then reports "Running custom build `node build.mjs`
+  failed" and exits 1 without uploading anything, so the live site keeps
+  its last good version. The build log names the page and the word.
 
 ## Attach creatorcrew.com.au (at launch only)
 

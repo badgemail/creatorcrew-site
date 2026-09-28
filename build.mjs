@@ -171,7 +171,9 @@ writeFileSync(join(DIST, "sitemap.xml"),
 const uniq = [...new Set(warnings)];
 if (uniq.length) console.warn(`\n⚠ ${uniq.length} placeholder(s) still to fill before launch:\n  ` + uniq.join("\n  "));
 if (problems.length) {
-  console.error(`\n✖ Vocabulary check failed:\n  ` + problems.join("\n  "));
+  // Leave nothing deployable behind: a failed build must never ship.
+  for (const name of readdirSync(DIST)) rmSync(join(DIST, name), { recursive: true, force: true });
+  console.error(`\n✖ Vocabulary check failed — dist/ emptied, nothing to deploy:\n  ` + problems.join("\n  "));
   process.exit(1);
 }
 console.log(`\n✔ Built ${PAGES.length} pages into dist/ (css ${cssHash})`);
