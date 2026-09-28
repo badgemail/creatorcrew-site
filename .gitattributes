@@ -1,0 +1,5 @@
+# Keep LF everywhere (Cloudflare reads static/_headers line by line)
+* text=auto eol=lf
+*.woff2 binary
+*.png binary
+*.webp binary
