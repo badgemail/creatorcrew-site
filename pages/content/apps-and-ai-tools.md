@@ -1,7 +1,7 @@
 ---
 title: Current Apps & AI Tools
 description: The apps and AI tools from The Creator Starter Kit: Content, with what they do and don't need right now — kept current between editions.
-updated: 28 September 2026 (app checks on Android, 26 September 2026)
+updated: 29 September 2026 (app checks on Android, 26 September 2026; Canva checked 29 September 2026)
 ---
 
 # Current Apps & AI Tools
@@ -33,8 +33,8 @@ updated: 28 September 2026 (app checks on Android, 26 September 2026)
 
 **Canva** — the ready-made thumbnail templates are sized exactly right.
 
-- Canva's terms start at 13; younger users often reach it through school, via Canva Education.
-- Whether a basic design can be made and exported without an account hasn't been checked yet — this page will say once it has.
+- Needs a free account (13 and up; often through school). A sign-in comes before the editor opens: you can browse templates without one, but not edit them.
+- A Canva account isn't a social media account, and Australia's under-16 rule doesn't cover it.
 
 ## AI tools
 
