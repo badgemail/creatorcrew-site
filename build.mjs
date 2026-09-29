@@ -151,7 +151,7 @@ for (const page of PAGES) {
     : `${meta.title || page.title || page.nav} — ${cfg.siteName}`;
   const html = fill(layout
     .replace("{{page_title}}", esc(title))
-    .replace("{{description}}", esc(meta.description || `Free monthly updates for readers of ${cfg.seriesTitle} series — apps, AI tools and Australian rules, kept current between editions.`))
+    .replace("{{description}}", esc(meta.description || `Free email updates for readers of ${cfg.seriesTitle} series — apps, AI tools and Australian rules, kept current between editions.`))
     .replace("{{canonical}}", page.path ? `<link rel="canonical" href="https://${cfg.domain}${page.path}">` : "")
     .replace("{{robots}}", page.noindex || meta.noindex === "true" ? '<meta name="robots" content="noindex">' : "")
     .replace("{{css_href}}", `/css/site.css?v=${cssHash}`)

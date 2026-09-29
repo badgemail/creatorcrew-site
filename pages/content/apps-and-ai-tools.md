@@ -45,4 +45,4 @@ updated: 29 September 2026 (app checks on Android, 26 September 2026; Canva chec
 
 **Instagram Edits** — a genuinely good editor, but it needs an Instagram login just to open, so in Australia it's for 16 and over. If that's you and you already have Instagram, it's worth trying alongside CapCut — the skills carry straight across.
 
-> The monthly email flags anything on this page that changes. Checks are done on real devices; where something hasn't been checked yet, this page says so rather than guessing.
+> The Creator Crew newsletter flags anything on this page that changes. Checks are done on real devices; where something hasn't been checked yet, this page says so rather than guessing.

@@ -1,6 +1,6 @@
 # Creator Crew — companion site (creatorcrew.com.au)
 
-The website for **Creator Crew**, the free monthly update that comes with
+The website for **Creator Crew**, the free email newsletter that comes with
 every title in *The Creator Starter Kit* series (Luke Badger, LJB Press).
 Creator Crew is series-wide: each title is a **specialisation** with its
 own section of the site. *Content* is available now; *Music* and *Apps &
@@ -200,7 +200,7 @@ script runs on this site.
 | On the form | Sent to Buttondown as |
 |---|---|
 | Parent or guardian's email (required) | `email` |
-| "Send me the free monthly Creator Crew update" (unticked; must be ticked to submit) | not sent: it only unlocks the button, and Buttondown's confirmation email records the consent |
+| "Send me the free Creator Crew newsletter" (unticked; must be ticked to submit; "monthly" removed 29 September 2026) | not sent: it only unlocks the button, and Buttondown's confirmation email records the consent |
 
 `embed=1` is also sent (a hidden technical flag, not a field). Both work
 on Buttondown's free plan, which caps at **100 subscribers**.
@@ -214,8 +214,9 @@ the same endpoint as Buttondown's own form at buttondown.com/creatorcrew.
 - **Helper text**, linked to the input with `aria-describedby`: "Creator
   Crew goes to a parent's inbox. Under 18? Ask a parent to sign up, and
   they can forward it to you."
-- **Consent box**, unticked: "Send me the free monthly Creator Crew
-  update."
+- **Consent box**, unticked: "Send me the free Creator Crew
+  newsletter." ("Monthly" removed 29 September 2026: no frequency
+  promised. Flagged for the privacy reviewer.)
 - **Small print** under the button (revised 28 September 2026): "You'll
   get an email to confirm your address. We use it only to send the Creator
   Crew update. We never sell or rent it, or share it with anyone except

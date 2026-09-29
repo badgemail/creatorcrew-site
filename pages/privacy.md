@@ -10,7 +10,7 @@ noindex: true
 
 > **DRAFT — pending professional review.** This notice was drafted from Creator Crew's data-handling commitments and has not yet been checked by a privacy professional. Notes marked **[Reviewer]** are open questions for that review and will be removed before launch.
 
-Creator Crew is the free monthly update for readers of every title in *The Creator Starter Kit* series, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
+Creator Crew is the free email newsletter for readers of every title in *The Creator Starter Kit* series, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
 
 ## Who fills in the form
 
@@ -19,7 +19,7 @@ The sign-up form is for a **parent or guardian**. It's their email address the u
 ## What we collect, and why
 
 - **Email address (required)** — the parent's or guardian's own address. It's the only thing the form asks for, and it's how the update is delivered.
-- **Your consent** — the box asking to be sent the monthly update. It starts unticked, and it's needed to sign up. Your confirmation of the email that follows is the record of that consent.
+- **Your consent** — the box asking to be sent the Creator Crew newsletter. It starts unticked, and it's needed to sign up. Your confirmation of the email that follows is the record of that consent.
 
 That's all. If Creator Crew ever asks for anything more — for example an optional first name — this notice will be updated before the form changes, and anything extra will be optional.
 
@@ -29,7 +29,7 @@ The young person's name, age or date of birth, any physical address, phone numbe
 
 ## How it's used
 
-Only to send the monthly Creator Crew update. It isn't used for anything else, including marketing other products.
+Only to send the Creator Crew newsletter. It isn't used for anything else, including marketing other products.
 
 ## Never sold, rented or passed on
 
@@ -38,6 +38,8 @@ Your details are never sold, rented or disclosed to anyone else, for any purpose
 The email service **Buttondown** stores the list and sends the emails on our behalf. It acts as our service provider and handles your email address only to do that job.
 
 **[Reviewer]** Confirm Buttondown's legal entity and where it stores data (believed to be the United States). If data is stored overseas, add the Australian Privacy Principle 8 overseas-disclosure wording. Also check that describing a contracted service provider this way sits comfortably with the "never disclosed to a third party" commitment.
+
+**[Reviewer]** "Monthly" was removed from the consent box (now "Send me the free Creator Crew newsletter") and from this notice on 29 September 2026, so no frequency is promised. Please confirm the consent wording still reads as specific, informed consent.
 
 **[Reviewer]** Check this notice against the sign-up form's small print too (home page, under the Sign up button): "You'll get an email to confirm your address. We use it only to send the Creator Crew update. We never sell or rent it, or share it with anyone except Buttondown, which sends the emails for us. Unsubscribe any time." The form names Buttondown as the one exception to "never share", so the notice's "never disclosed to anyone else" wording and the form should say the same thing.
 
