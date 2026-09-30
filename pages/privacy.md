@@ -8,7 +8,9 @@ noindex: true
 
 # Privacy notice
 
-> **DRAFT — pending professional review.** This notice was drafted from Creator Crew's data-handling commitments and has not yet been checked by a privacy professional. Notes marked **[Reviewer]** are open questions for that review and will be removed before launch.
+> **DRAFT — pending professional review.** This notice was drafted from Creator Crew's data-handling commitments and has not yet been checked by a privacy professional.
+
+<!-- For the privacy reviewer: notes marked **[Reviewer]** in this file are open questions for your review. They're source-only (the build strips them, 30 September 2026), and they're resolved and removed before launch. -->
 
 Creator Crew is the free email newsletter for readers of every title in *The Creator Starter Kit* series, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
 

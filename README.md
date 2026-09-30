@@ -307,7 +307,9 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 ## Launch checklist
 
 - [ ] Privacy notice professionally reviewed, and the **[Reviewer]** notes
-      resolved and removed.
+      resolved and removed. (Since 30 September 2026 they're source-only:
+      `build.mjs` strips them, and `<!-- … -->` comments, from page
+      markdown, and fails the build if a `[Reviewer]` note would ship.)
 - [ ] `status:` and `noindex:` lines removed from `pages/privacy.md`.
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.

@@ -53,6 +53,19 @@ function inline(text) {
   return t;
 }
 
+// Reviewer notes are source-only (30 September 2026): a paragraph that
+// starts with **[Reviewer]** is dropped whole, a **[Reviewer]** note at
+// the end of a paragraph is cut from there, and <!-- … --> comments in a
+// page's markdown are removed. The text stays in pages/*.md for the
+// privacy reviewer; the build fails if any of it would still ship.
+function stripSourceNotes(md) {
+  return md
+    .replace(/<!--[\s\S]*?-->\n?/g, "")
+    .replace(/^\*\*\[Reviewer\]\*\*.*(?:\n(?!\s*\n).*)*\n?/gm, "")
+    .replace(/[ \t]*\*\*\[Reviewer\]\*\*.*$/gm, "")
+    .replace(/\n{3,}/g, "\n\n");
+}
+
 function frontMatter(md) {
   const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if (!m) return [{}, md];
@@ -143,7 +156,7 @@ for (const page of PAGES) {
     meta = m;
     const updated = meta.updated ? `<p class="updated">Last checked: ${esc(meta.updated)}</p>` : "";
     const draft = meta.status ? `<p class="status">${esc(meta.status)}</p>` : "";
-    body = `<article class="wrap prose">${draft}${crumbs(page)}${markdown(md)}${updated}</article>`;
+    body = `<article class="wrap prose">${draft}${crumbs(page)}${markdown(stripSourceNotes(md))}${updated}</article>`;
   } else {
     body = read(page.src);
   }
@@ -168,6 +181,7 @@ for (const page of PAGES) {
     if (m) problems.push(`${page.out}: banned word "${label}" in "…${visible.slice(Math.max(0, m.index - 40), m.index + 40).replace(/\s+/g, " ")}…"`);
   }
   for (const m of html.matchAll(/REPLACE_WITH_\w+/g)) warnings.push(`${page.out}: placeholder ${m[0]}`);
+  if (/\[Reviewer\]/.test(shipped)) problems.push(`${page.out}: a [Reviewer] note would ship (keep them source-only)`);
 
   if (page.path && !page.noindex && meta.noindex !== "true") indexed.push(page.path);
 
@@ -187,7 +201,7 @@ if (uniq.length) console.warn(`\n⚠ ${uniq.length} placeholder(s) still to fill
 if (problems.length) {
   // Leave nothing deployable behind: a failed build must never ship.
   for (const name of readdirSync(DIST)) rmSync(join(DIST, name), { recursive: true, force: true });
-  console.error(`\n✖ Vocabulary check failed — dist/ emptied, nothing to deploy:\n  ` + problems.join("\n  "));
+  console.error(`\n✖ Build check failed — dist/ emptied, nothing to deploy:\n  ` + problems.join("\n  "));
   process.exit(1);
 }
 console.log(`\n✔ Built ${PAGES.length} pages into dist/ (css ${cssHash})`);
