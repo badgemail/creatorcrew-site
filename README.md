@@ -27,6 +27,9 @@ repo (`CreatorStarterKit`: `style/visual-style-guide.md`,
 
 > **Not launched.** See the **Launch checklist** below. Until it's done,
 > deploy only to the `workers.dev` preview URL, never to creatorcrew.com.au.
+> The one planned exception is the **holding version** (no sign-up form),
+> if the privacy review isn't done by the book's publication date, 2
+> November 2026: see "Holding version" below.
 
 ---
 
@@ -303,6 +306,62 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
 - **Retention:** the privacy notice promises data is kept only while the
   subscription is active, so **delete unsubscribed subscribers** rather
   than leaving them in the list.
+
+## Holding version (plan only, 12 October 2026)
+
+**Why:** the book's publication date is now **2 November 2026**, and
+creatorcrew.com.au must be live by then, because the book prints that
+address and a QR code for it. The sign-up form can't launch until the
+privacy notice has been professionally reviewed. If the review isn't
+done in time, a **holding version** goes on the domain with no sign-up
+form, and the full site replaces it after the review. **Not built and
+not deployed yet.** Decide in the week of 26 October.
+
+**What changes in the holding version:**
+- **Home, sign-up section:** the whole `<form>` (email field, consent
+  box, small print) is left out. In its place, under the same heading
+  and `id="sign-up"` so `/#sign-up` links still land: "Sign-up opening
+  soon. The newsletter starts shortly; check back here." Suggested
+  wording, for Luke to approve. No email address is collected anywhere,
+  not even by `mailto:`.
+- **Home, hero button:** "Get the newsletter" (to `#sign-up`) stays, so
+  it lands on the "opening soon" note. Or relabel it "Sign-up opening
+  soon" (Luke to choose).
+- **Other pages:** check that nothing promises a sign-up that works
+  today. `pages/content/index.md` says "[Get the newsletter](/#sign-up)":
+  fine, since it lands on the note.
+- **Privacy notice:** still a draft, so it's **not published** in the
+  holding version: left out of `PAGES` (no page, no nav link, not in
+  the sitemap). With no form, nothing is collected, so there's nothing
+  for it to cover yet. The 404 page handles `/privacy/` until then.
+- **Unchanged:** Content, Current Apps & AI Tools, Regulation Watch
+  (their `updated:` dates rechecked first), the vocabulary check, the
+  headers and the redirects. The CSP's `form-action` for buttondown.com
+  can stay; it allows nothing on its own.
+
+**How to build it (proposed):**
+1. A `"signupOpen": false` switch in `site.config.json`.
+2. In `src/home.html`, wrap the form in `<!-- SIGNUP:OPEN -->` …
+   `<!-- /SIGNUP:OPEN -->` and the holding note in `<!-- SIGNUP:SOON -->`
+   … `<!-- /SIGNUP:SOON -->`. `build.mjs` keeps one block and drops the
+   other, according to the switch.
+3. In `build.mjs`, skip the privacy page when `signupOpen` is false.
+4. A build guard: with `signupOpen` false, fail if `dist/` contains a
+   `<form`, `embed-subscribe` or `/privacy/` link. With it true, fail if
+   `pages/privacy.md` still has its `status:` line, so the form can't
+   ship before the review.
+
+**Test before deploying:** `npx wrangler dev`, then check:
+- no form on Home;
+- `/#sign-up` lands on the note;
+- `/privacy/` returns the 404 page;
+- the sitemap doesn't list `/privacy/`;
+- the QR code on the printed proof opens the page;
+- no sideways scrolling at 320px.
+
+**After the review:** set `"signupOpen": true`, finish the Launch
+checklist below, and deploy. The domain stays attached throughout, so
+the printed URL never breaks.
 
 ## Launch checklist
 
