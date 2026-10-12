@@ -34,6 +34,11 @@ const PAGES = [
   { src: "pages/content/apps-and-ai-tools.md", out: "content/apps-and-ai-tools/index.html", path: "/content/apps-and-ai-tools/", section: "/content/" },
   { src: "pages/regulation-watch.md", out: "regulation-watch/index.html", path: "/regulation-watch/", nav: "Regulation Watch" },
   { src: "pages/privacy.md", out: "privacy/index.html", path: "/privacy/", nav: "Privacy" },
+  // Sign-up redirects (12 October 2026): Buttondown sends people here after
+  // the form (/thanks/) and after the confirm link (/confirmed/). No nav
+  // link, noindex in their front matter, so not in the sitemap.
+  { src: "pages/thanks.md", out: "thanks/index.html", path: "/thanks/" },
+  { src: "pages/confirmed.md", out: "confirmed/index.html", path: "/confirmed/" },
   { src: "src/404.html", out: "404.html", path: null, title: "Page not found", noindex: true },
 ];
 
