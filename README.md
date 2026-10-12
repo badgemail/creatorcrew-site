@@ -379,9 +379,9 @@ the printed URL never breaks.
       any `[Reviewer]` note and `<!-- … -->` comment from page markdown,
       and fails the build if a `[Reviewer]` note would ship. The notice
       keeps `noindex: true`.
-- [ ] privacy@creatorcrew.com.au routing set up (Cloudflare Email Routing) and tested with a real email.
-- [ ] Buttondown email footer shows LJB Press as sender and a working unsubscribe link.
-- [ ] Buttondown open and click tracking confirmed OFF (the notice says it is).
+- [x] privacy@creatorcrew.com.au routing set up (Cloudflare Email Routing) and tested with a real email (28 September 2026).
+- [x] Buttondown email footer shows LJB Press as sender and a working unsubscribe link (12 October 2026).
+- [x] Buttondown open and click tracking confirmed OFF (the notice says it is), and UTM parameters off (12 October 2026).
 - [ ] Buttondown unsubscribes stay as the default soft delete ("made inactive"). Don't request hard deletion.
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.
@@ -397,7 +397,8 @@ the printed URL never breaks.
       in Buttondown, unsubscribe works, deletion on request works.
 - [ ] Regulation Watch and Current Apps rechecked, and `updated:` dates set.
 - [x] Custom domain attached (above): creatorcrew.com.au and www.creatorcrew.com.au, 12 October 2026.
-- [ ] `www` redirected: dashboard Redirect Rule ("Redirect from WWW to root", 301) still to add.
+- [x] `www` redirected: dashboard Redirect Rule ("Redirect from WWW to root", 301), keeping the path (12 October 2026, Cloudflare dashboard).
+- [x] Always Use HTTPS on: http:// redirects to https:// with a 301 (12 October 2026, Cloudflare dashboard).
 
 ## Accessibility and performance notes
 

@@ -1,7 +1,7 @@
 ---
 title: Privacy notice
 description: How Creator Crew handles the email address the sign-up form collects.
-updated: 2 November 2026
+updated: 12 October 2026
 noindex: true
 ---
 
