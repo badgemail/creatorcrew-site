@@ -17,7 +17,7 @@ It holds:
 - **Regulation Watch** (`/regulation-watch/`, series-wide):
   `pages/regulation-watch.md`.
 - **Privacy notice** (`/privacy/`, series-wide): `pages/privacy.md`.
-  **DRAFT, pending professional review.**
+  **Final for launch** (Luke's own review, 12 October 2026).
 
 It's a plain static site: no framework and no JavaScript on the page. It's
 hosted on **Cloudflare Workers with static assets** (not Pages, not Wix,
@@ -27,9 +27,9 @@ repo (`CreatorStarterKit`: `style/visual-style-guide.md`,
 
 > **Not launched.** See the **Launch checklist** below. Until it's done,
 > deploy only to the `workers.dev` preview URL, never to creatorcrew.com.au.
-> The one planned exception is the **holding version** (no sign-up form),
-> if the privacy review isn't done by the book's publication date, 2
-> November 2026: see "Holding version" below.
+> The site, sign-up form included, goes on the domain for the book's
+> publication date, 2 November 2026. The privacy review is done (12
+> October 2026), so the holding version below isn't needed.
 
 ---
 
@@ -218,14 +218,17 @@ the same endpoint as Buttondown's own form at buttondown.com/creatorcrew.
   Crew goes to a parent's inbox. Under 18? Ask a parent to sign up, and
   they can forward it to you."
 - **Consent box**, unticked: "Send me the free Creator Crew
-  newsletter." ("Monthly" removed 29 September 2026: no frequency
-  promised. Flagged for the privacy reviewer.)
-- **Small print** under the button (revised 28 September 2026): "You'll
+  newsletter." ("Monthly" removed 29 September 2026: the newsletter has
+  no set frequency, so none is promised anywhere.)
+- **Small print** under the button (revised 12 October 2026): "You'll
   get an email to confirm your address. We use it only to send the Creator
-  Crew update. We never sell or rent it, or share it with anyone except
-  Buttondown, which sends the emails for us. Unsubscribe any time." It's
-  followed by a link to the Privacy notice. The privacy notice draft has a
-  **[Reviewer]** note to check the two agree.
+  Crew newsletter. We never sell or rent it, or share it with anyone
+  except our email provider, which sends the emails for us. By signing
+  up, you confirm you're 18 or over. Unsubscribe any time." It's followed
+  by a link to the Privacy notice, and matches it.
+- **Naming Buttondown:** site copy says "our email provider". Only the
+  privacy notice names Buttondown, LLC, once, so a change of provider
+  means editing one line.
 
 ### Parked fields: re-enable on a paid plan (at ~100 subscribers)
 
@@ -278,7 +281,7 @@ the live form.
      new specialisation is announced. Tag values are stable — never rename one. -->
 <fieldset class="field" aria-describedby="interests-hint">
   <legend>Interests <span class="opt">(optional)</span></legend>
-  <p class="hint" id="interests-hint">Which Creator Starter Kit specialisations you'd like first in each month's email.</p>
+  <p class="hint" id="interests-hint">Which Creator Starter Kit specialisations you'd like first in each email.</p>
   <div class="checks">
     <div class="check"><input id="i-content" type="checkbox" name="tag" value="interest-content"><label for="i-content">Content</label></div>
     <div class="check"><input id="i-music" type="checkbox" name="tag" value="interest-music"><label for="i-music">Music</label></div>
@@ -303,11 +306,17 @@ The CSS for all of this (`.checks`, `.check`, `select`) is still in
   `creatorcrew` (28 September 2026).
 - Keep **double opt-in (confirmation email) on**. The privacy notice
   treats confirming that email as the record of consent.
-- **Retention:** the privacy notice promises data is kept only while the
-  subscription is active, so **delete unsubscribed subscribers** rather
-  than leaving them in the list.
+- **Retention (12 October 2026):** leave unsubscribes as Buttondown's
+  default soft delete ("made inactive"), which the privacy notice
+  describes: the address is kept only as a record of the unsubscribe.
+  Delete an address completely only when its owner asks.
+- **Open and click tracking off.** The privacy notice says it is.
 
 ## Holding version (plan only, 12 October 2026)
+
+> **Not needed (12 October 2026):** Luke's own review of the privacy
+> notice is done, and the form launches with the site on 2 November 2026.
+> The plan is kept below for reference only.
 
 **Why:** the book's publication date is now **2 November 2026**, and
 creatorcrew.com.au must be live by then, because the book prints that
@@ -365,11 +374,16 @@ the printed URL never breaks.
 
 ## Launch checklist
 
-- [ ] Privacy notice professionally reviewed, and the **[Reviewer]** notes
-      resolved and removed. (Since 30 September 2026 they're source-only:
-      `build.mjs` strips them, and `<!-- … -->` comments, from page
-      markdown, and fails the build if a `[Reviewer]` note would ship.)
-- [ ] `status:` and `noindex:` lines removed from `pages/privacy.md`.
+- [ ] Privacy notice: own review done (12 October 2026). Attach creatorcrew.com.au to the Worker for launch on 2 November 2026.
+- [x] `status:` line (the DRAFT banner) and the **[Reviewer]** notes removed
+      from `pages/privacy.md` (12 October 2026). `build.mjs` still strips
+      any `[Reviewer]` note and `<!-- … -->` comment from page markdown,
+      and fails the build if a `[Reviewer]` note would ship. The notice
+      keeps `noindex: true`.
+- [ ] privacy@creatorcrew.com.au routing set up (Cloudflare Email Routing) and tested with a real email.
+- [ ] Buttondown email footer shows LJB Press as sender and a working unsubscribe link.
+- [ ] Buttondown open and click tracking confirmed OFF (the notice says it is).
+- [ ] Buttondown unsubscribes stay as the default soft delete ("made inactive"). Don't request hard deletion.
 - [ ] Children's Online Privacy Code: due to be registered by 10 December 2026.
       Recheck the notice against the final code.
 - [ ] Launch on Buttondown's free plan with the lean form (decided 28 September 2026); plan the upgrade and re-enable the parked fields at ~100 subscribers (see "Parked fields").

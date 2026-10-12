@@ -160,11 +160,11 @@ for (const page of PAGES) {
   } else {
     body = read(page.src);
   }
-  const title = page.title === null ? `${cfg.siteName} — the companion update for ${cfg.seriesTitle}`
+  const title = page.title === null ? `${cfg.siteName} — the companion newsletter for ${cfg.seriesTitle}`
     : `${meta.title || page.title || page.nav} — ${cfg.siteName}`;
   const html = fill(layout
     .replace("{{page_title}}", esc(title))
-    .replace("{{description}}", esc(meta.description || `Free email updates for readers of ${cfg.seriesTitle} series — apps, AI tools and Australian rules, kept current between editions.`))
+    .replace("{{description}}", esc(meta.description || `A free email newsletter for readers of ${cfg.seriesTitle} series — apps, AI tools and Australian rules, kept current between editions.`))
     .replace("{{canonical}}", page.path ? `<link rel="canonical" href="https://${cfg.domain}${page.path}">` : "")
     .replace("{{robots}}", page.noindex || meta.noindex === "true" ? '<meta name="robots" content="noindex">' : "")
     .replace("{{css_href}}", `/css/site.css?v=${cssHash}`)

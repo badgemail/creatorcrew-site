@@ -1,70 +1,62 @@
 ---
 title: Privacy notice
 description: How Creator Crew handles the email address the sign-up form collects.
-status: DRAFT — pending professional review. Not yet in force; do not launch the sign-up form until this notice has been reviewed.
-updated: 28 September 2026 (draft, lean launch form)
+updated: 2 November 2026
 noindex: true
 ---
 
 # Privacy notice
 
-> **DRAFT — pending professional review.** This notice was drafted from Creator Crew's data-handling commitments and has not yet been checked by a privacy professional.
+**In short:** we ask a parent or guardian for one email address. We use it to send the Creator Crew newsletter, and we never sell it. You can unsubscribe, or ask us to delete it, any time.
 
-<!-- For the privacy reviewer: notes marked **[Reviewer]** in this file are open questions for your review. They're source-only (the build strips them, 30 September 2026), and they're resolved and removed before launch. -->
+## Who we are
 
-Creator Crew is the free email newsletter for readers of every title in *The Creator Starter Kit* series, run by LJB Press (Luke Badger). This notice explains what the sign-up form collects, why, and what happens to it.
+Creator Crew is the free email newsletter for readers of *The Creator Starter Kit* series. It's run by LJB Press (Luke Badger), Byron Bay NSW, Australia. For anything about your information, email {{privacyContactEmail}}.
 
 ## Who fills in the form
 
-The sign-up form is for a **parent or guardian**. It's their email address the update goes to, and nothing on the form asks for information about the young person reading the books.
+The sign-up form is for a **parent or guardian**. By signing up, you confirm the email address is yours and that you're 18 or over. Nothing on the form asks about the young person reading the books.
 
-## What we collect, and why
+## What we collect
 
-- **Email address (required)** — the parent's or guardian's own address. It's the only thing the form asks for, and it's how the update is delivered.
-- **Your consent** — the box asking to be sent the Creator Crew newsletter. It starts unticked, and it's needed to sign up. Your confirmation of the email that follows is the record of that consent.
+- **Your email address.** It's the only thing the form asks for, and it's how the newsletter reaches you.
+- **Your consent.** You tick the consent box (it starts unticked), then confirm your address using the link in the email we send. Our email provider records when you confirmed, and that's our record of your consent.
 
-That's all. If Creator Crew ever asks for anything more — for example an optional first name — this notice will be updated before the form changes, and anything extra will be optional.
+If we ever ask for more, such as an optional first name, we'll update this notice before the form changes, and anything extra will be optional.
 
-## What we deliberately don't collect
+## What we don't collect
 
-The young person's name, age or date of birth, any physical address, phone number, or social media handle. None of it is needed to send the update, so the form doesn't ask.
+The young person's name, age or date of birth, any physical address, phone number or social media handle. None of it is needed to send the newsletter, so the form doesn't ask.
 
 ## How it's used
 
-Only to send the Creator Crew newsletter. It isn't used for anything else, including marketing other products.
+To send the Creator Crew newsletter: news about the apps, AI tools and rules the books cover, and word when a revised edition of *The Creator Starter Kit* is out, with any launch offer.
 
-## Never sold, rented or passed on
+Open and click tracking is switched off, so we can't see whether you opened an email or clicked a link.
 
-Your details are never sold, rented or disclosed to anyone else, for any purpose.
+## Who else sees it
 
-The email service **Buttondown** stores the list and sends the emails on our behalf. It acts as our service provider and handles your email address only to do that job.
+We never sell or rent your email address, and we never give it to anyone to use for their own purposes.
 
-**[Reviewer]** Confirm Buttondown's legal entity and where it stores data (believed to be the United States). If data is stored overseas, add the Australian Privacy Principle 8 overseas-disclosure wording. Also check that describing a contracted service provider this way sits comfortably with the "never disclosed to a third party" commitment.
+Our email provider stores the list and sends the newsletter for us, and may use your address only to do that. We currently use Buttondown, LLC, which stores data in the United States. If we change email provider, the new one will handle your address on the same basis, and we'll update this notice.
 
-**[Reviewer]** "Monthly" was removed from the consent box (now "Send me the free Creator Crew newsletter") and from this notice on 29 September 2026, so no frequency is promised. Please confirm the consent wording still reads as specific, informed consent.
-
-**[Reviewer]** Check this notice against the sign-up form's small print too (home page, under the Sign up button): "You'll get an email to confirm your address. We use it only to send the Creator Crew update. We never sell or rent it, or share it with anyone except Buttondown, which sends the emails for us. Unsubscribe any time." The form names Buttondown as the one exception to "never share", so the notice's "never disclosed to anyone else" wording and the form should say the same thing.
-
-This website is hosted by Cloudflare, which processes standard technical information (such as IP addresses) to deliver the site and protect it from abuse. The site itself uses no analytics and no tracking cookies. **[Reviewer]** Confirm the Cloudflare settings in use and any cookies they set.
+This website is hosted by Cloudflare, which processes standard technical information (such as IP addresses), possibly outside Australia, to deliver the site and protect it from abuse. The site uses no analytics and no advertising or tracking cookies.
 
 ## How long it's kept
 
-Only while your subscription is active. Unsubscribing — there's a link in every email — ends the subscription, and your email address is then deleted.
+While you're subscribed. When you unsubscribe (there's a link in every email), your address is made inactive and you're sent nothing more. We keep it only as a record that you unsubscribed, so you aren't added back by mistake. If you'd like it deleted completely, email us.
 
-## Your choices and rights
+## Your choices
 
 - **Unsubscribe** any time, using the link in any email.
-- **Ask for your data to be deleted** at any time: email {{privacyContactEmail}}.
-- **Ask to see or correct** what we hold about you, using the same address.
+- **Ask to see, correct or delete** what we hold about you: email {{privacyContactEmail}}.
 
-If you're unhappy with how we've handled your information, contact us first. If we can't resolve it, you can complain to the Office of the Australian Information Commissioner at [oaic.gov.au](https://www.oaic.gov.au).
+If you're unhappy with how we've handled your information, contact us first. If we can't sort it out, you can complain to the Office of the Australian Information Commissioner at [oaic.gov.au](https://www.oaic.gov.au).
 
-## If anything ever changes
+## Changes to this notice
 
-There are no plans to use subscriber information for anything beyond sending the update. If that ever changed, it would be limited to aggregate, de-identified statistics — never individual subscriber records — and it would get its own separate privacy review first. This notice would be updated before any such change.
+If we change how we use your information, we'll update this notice first and let subscribers know by email.
 
 ## New rules
 
-Australia's Children's Online Privacy Code must be registered by 10 December 2026. This notice will be reviewed against the final code, and updated if it needs to be.
-
-**[Reviewer]** Also confirm the Spam Act 2003 requirements (consent, sender identification, functional unsubscribe) and the Australian Privacy Principles collection-notice requirements (APP 5).
+Australia's Children's Online Privacy Code must be registered by 10 December 2026. Its start date hasn't been set yet. We'll review this notice against the final Code and update it if needed.

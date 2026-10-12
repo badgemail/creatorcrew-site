@@ -18,9 +18,9 @@
   // Preview URL: https://creatorcrew-site.<your-subdomain>.workers.dev
   "workers_dev": true
 
-  // LAUNCH ONLY — attach the real domain. Uncomment once the privacy
-  // notice has been professionally reviewed and the Buttondown username
-  // is filled in (see README, "Launch checklist"). Requires the
+  // LAUNCH ONLY — attach the real domain. Uncomment for launch on 2
+  // November 2026 (privacy notice: own review done 12 October 2026; see
+  // README, "Launch checklist"). Requires the
   // creatorcrew.com.au zone to be in this Cloudflare account (it is:
   // DNS is on Cloudflare). Remember the comma after "workers_dev": true.
   // "routes": [
