@@ -25,11 +25,10 @@ not a redirect). The brand, fonts and wording rules come from the book
 repo (`CreatorStarterKit`: `style/visual-style-guide.md`,
 `creator-crew/signup-data-handling.md`, `PROJECT_INSTRUCTIONS.md`).
 
-> **Not launched.** See the **Launch checklist** below. Until it's done,
-> deploy only to the `workers.dev` preview URL, never to creatorcrew.com.au.
-> The site, sign-up form included, goes on the domain for the book's
-> publication date, 2 November 2026. The privacy review is done (12
-> October 2026), so the holding version below isn't needed.
+> **Live on creatorcrew.com.au** since 12 October 2026 (ahead of the
+> book's 2 November publication date), sign-up form included. Every push
+> to `main`, and every `wrangler deploy`, now updates the live site. The
+> holding version below wasn't needed.
 
 ---
 
@@ -374,7 +373,7 @@ the printed URL never breaks.
 
 ## Launch checklist
 
-- [ ] Privacy notice: own review done (12 October 2026). Attach creatorcrew.com.au to the Worker for launch on 2 November 2026.
+- [x] Privacy notice: own review done (12 October 2026). Attach creatorcrew.com.au to the Worker: done 12 October 2026, ahead of the 2 November launch.
 - [x] `status:` line (the DRAFT banner) and the **[Reviewer]** notes removed
       from `pages/privacy.md` (12 October 2026). `build.mjs` still strips
       any `[Reviewer]` note and `<!-- … -->` comment from page markdown,
@@ -397,7 +396,8 @@ the printed URL never breaks.
 - [ ] Test sign-up end to end: confirmation email arrives, the address lands
       in Buttondown, unsubscribe works, deletion on request works.
 - [ ] Regulation Watch and Current Apps rechecked, and `updated:` dates set.
-- [ ] Custom domain attached (above) and `www` redirected.
+- [x] Custom domain attached (above): creatorcrew.com.au and www.creatorcrew.com.au, 12 October 2026.
+- [ ] `www` redirected: dashboard Redirect Rule ("Redirect from WWW to root", 301) still to add.
 
 ## Accessibility and performance notes
 

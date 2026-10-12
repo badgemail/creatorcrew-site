@@ -16,15 +16,14 @@
   },
 
   // Preview URL: https://creatorcrew-site.<your-subdomain>.workers.dev
-  "workers_dev": true
+  "workers_dev": true,
 
-  // LAUNCH ONLY — attach the real domain. Uncomment for launch on 2
-  // November 2026 (privacy notice: own review done 12 October 2026; see
-  // README, "Launch checklist"). Requires the
-  // creatorcrew.com.au zone to be in this Cloudflare account (it is:
-  // DNS is on Cloudflare). Remember the comma after "workers_dev": true.
-  // "routes": [
-  //   { "pattern": "creatorcrew.com.au", "custom_domain": true },
-  //   { "pattern": "www.creatorcrew.com.au", "custom_domain": true }
-  // ]
+  // The real domain, attached 12 October 2026 (launch, ahead of 2
+  // November). www is attached too, so it has DNS and a certificate; a
+  // dashboard Redirect Rule ("Redirect from WWW to root", 301) sends it
+  // to https://creatorcrew.com.au/ (see README, "Attach creatorcrew.com.au").
+  "routes": [
+    { "pattern": "creatorcrew.com.au", "custom_domain": true },
+    { "pattern": "www.creatorcrew.com.au", "custom_domain": true }
+  ]
 }
