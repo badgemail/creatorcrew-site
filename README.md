@@ -236,7 +236,7 @@ comes back when Creator Crew moves to a paid Buttondown plan, which it
 needs at ~100 subscribers anyway. These fields need Buttondown's paid
 **metadata** (first name, state) and **tags** (interests, book news)
 features. **Interests map to the series' specialisations** (Content,
-Music, Apps & Games), not to topics. On the free plan Buttondown wouldn't keep them, so they're off
+Music, Games), not to topics. On the free plan Buttondown wouldn't keep them, so they're off
 the live form.
 
 **To re-enable:**
@@ -284,7 +284,7 @@ the live form.
   <div class="checks">
     <div class="check"><input id="i-content" type="checkbox" name="tag" value="interest-content"><label for="i-content">Content</label></div>
     <div class="check"><input id="i-music" type="checkbox" name="tag" value="interest-music"><label for="i-music">Music</label></div>
-    <div class="check"><input id="i-apps-games" type="checkbox" name="tag" value="interest-apps-and-games"><label for="i-apps-games">Apps &amp; Games</label></div>
+    <div class="check"><input id="i-games" type="checkbox" name="tag" value="interest-games"><label for="i-games">Games</label></div>
   </div>
 </fieldset>
 

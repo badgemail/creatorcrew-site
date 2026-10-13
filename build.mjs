@@ -23,7 +23,7 @@ const read = (p) => readFileSync(join(ROOT, p), "utf8");
 
 // ---------- pages (order = nav order) ----------
 // Creator Crew covers the whole series. Each title is a specialisation with
-// its own section (/content/, later /music/, /apps-and-games/); pages in a
+// its own section (/content/, later /games/, /music/); pages in a
 // section set `section` to its landing path, which gives them a breadcrumb
 // and highlights the section in the nav. Regulation Watch and Privacy are
 // series-wide, at the top level. Moved pages keep their old URL working
