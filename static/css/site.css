@@ -108,6 +108,14 @@ cite { font-style: italic; }
 .updated { margin-top: 2rem; padding-top: 1rem; border-top: 2px solid var(--tint); font-size: .9375rem; }
 hr { border: 0; border-top: 2px solid var(--tint); margin: 2rem 0; }
 code { font-size: .95em; }
+.shot { margin: 1rem 0 1.5rem; }   /* screenshots (Godot help); the blue outline is in the image */
+.shot img { border: 2px solid var(--tint); border-radius: var(--radius); }
+.code { position: relative; margin: 1rem 0 1.5rem; }   /* code to copy (Godot help) */
+.code pre { margin: 0; padding: 2.75rem 1rem 1rem; background: var(--navy); color: var(--off-white); border-radius: var(--radius); overflow-x: auto; tab-size: 4; -moz-tab-size: 4; font-size: .875rem; line-height: 1.5; }
+.code code { font-size: 1em; }
+.copy { position: absolute; top: .5rem; right: .5rem; min-height: 32px; padding: .25rem .8rem; background: var(--coral); color: var(--navy); font: 700 .875rem/1.2 var(--sans); border: 0; border-radius: 999px; cursor: pointer; }
+.copy:hover { background: #ff7556; }
+.copy:focus-visible { outline: 3px solid var(--lime); outline-offset: 2px; }
 
 /* ---------- pillar icons (one SVG, four evenly spaced icons) ---------- */
 .pillars { list-style: none; padding: 0; margin: 1.75rem 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }

@@ -39,6 +39,8 @@ pages/             ← the editable pages, in markdown; folders mirror URLs
   content/         ← the Content specialisation (/content/…)
     index.md
     apps-and-ai-tools.md
+  games/           ← the Games specialisation (not launched; no nav link)
+    godot.md       ← the Godot help guide, served at /godot/
   regulation-watch.md   ← series-wide
   privacy.md            ← series-wide
 src/
@@ -49,6 +51,7 @@ static/            ← copied to the site as-is
   css/site.css     ← all styles
   fonts/           ← self-hosted Montserrat + Inter (WOFF2, Latin subset) + OFL licences
   img/             ← Crew icon, pillar icons
+    godot/         ← Godot help screenshots (WebP)
   _headers         ← security + caching headers (Cloudflare reads this)
   _redirects       ← old URLs → new ones (Cloudflare reads this)
 site.config.json   ← site-wide values, including the placeholders to fill
@@ -83,7 +86,12 @@ The markdown supported is deliberately small:
 - `-` bullet and `1.` numbered lists;
 - `**bold**`, `*italic*`;
 - `[links](https://…)`;
-- `> ` for a highlighted callout box.
+- `> ` for a highlighted callout box;
+- `![alt text](/img/….webp)` on a line of its own for a screenshot. The
+  build reads its width and height from the file, and stops if the
+  file is missing or the alt text is empty.
+- a ``` fence for code to copy. The code is kept exactly, tabs
+  included, and gets a **Copy** button (see the CSP note below).
 
 Anything fancier needs a change to `build.mjs`.
 
@@ -124,6 +132,28 @@ To change the site name, domain or placeholders, edit
   the first, from 28 September 2026. It was tested on the local Workers
   runtime (`wrangler dev`): both `/current-apps` and `/current-apps/`
   return 301 to the new page, and `_redirects` itself isn't served.
+- **Games (22 October 2026, not launched):** the Godot help guide is
+  `pages/games/godot.md`, served at **/godot/**, because the Games book
+  prints `creatorcrew.com.au/godot` (`/godot` redirects there). It has no
+  nav link and no Home card yet. At launch, follow "Launching a new
+  specialisation" for `/games/` and link the guide from it.
+  - **Scope** (Luke, 22 October 2026, widened 24 October 2026): the
+    book's Before You Start (install, projects folder, the three
+    settings, backups, crash fixes and official Godot links), the
+    Chapter 4 code to copy, and Chapter 12's export steps with
+    pictures. Everything else stays in the book.
+  - **The Chapter 4 code is indented with tabs**, as Godot's editor
+    does, so it pastes cleanly. Keep the tabs when editing the page.
+  - **Every step on it comes from a tested source** in the book repo
+    (rule L5): the Before You Start, Chapter 4 and Chapter 12 drafts and
+    the tests behind them. A screenshot goes in only if it matches the
+    book's step exactly; steps still without one are listed in the
+    book repo's creator-crew/TODO-games.md ("Godot page screenshots to
+    take").
+  - **Screenshots** follow the book repo's screenshot exception (PI,
+    22 October 2026): cropped, no ads, no other apps' logos, usernames
+    blurred, one Electric Blue (#1E6FF0) outline where the reader
+    clicks, at most 1200px wide and under about 200 KB.
 - **The book prints one address**: the `[CREW URL]` placeholder in the
   book repo. Once that's printed, that URL is permanent.
 
@@ -419,4 +449,8 @@ the printed URL never breaks.
   - five WOFF2 fonts, each 15–18 KB, preloaded where it matters;
   - the CSS is fingerprinted and cached long-term.
 - **Content Security Policy** (`static/_headers`) allows only this site's
-  own files, plus form posts to buttondown.com.
+  own files, plus form posts to buttondown.com, and no scripts. The one
+  exception (24 October 2026): a page with a code block gets a small
+  inline Copy script, and `build.mjs` adds a rule for that page to
+  `dist/_headers` allowing only that script's SHA-256 hash. Change the
+  script in `COPY_SCRIPT` and the hash follows on the next build.
