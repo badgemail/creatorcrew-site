@@ -92,6 +92,11 @@ The markdown supported is deliberately small:
   file is missing or the alt text is empty.
 - a ``` fence for code to copy. The code is kept exactly, tabs
   included, and gets a **Copy** button (see the CSP note below).
+- `| a | b |` tables: a header row, a `|---|---|` line, then rows; cells
+  take `code` and **bold** (2 November 2026, for Bench Cat).
+- `[Download …](/downloads/….zip)` on a line of its own becomes a
+  button. The file goes in `static/downloads/`; the build stops if it's
+  missing. Downloads are cached for an hour (`_headers`).
 
 Anything fancier needs a change to `build.mjs`.
 
@@ -154,6 +159,16 @@ To change the site name, domain or placeholders, edit
     22 October 2026): cropped, no ads, no other apps' logos, usernames
     blurred, one Electric Blue (#1E6FF0) outline where the reader
     clicks, at most 1200px wide and under about 200 KB.
+- **Bench Cat (2 November 2026, not linked from Home):**
+  `pages/games/bench-cat.md`, served at **/bench-cat/**, linked from
+  /godot's "Code from the book". It's the free Bench Cat project the
+  Games book promises (PROMISE-REGISTER P11): v1 is exactly the code the
+  book prints, with a comment above every line. The project's source is
+  `projects/bench-cat/` in the book repo; the zip is
+  `static/downloads/bench-cat-godot-4.7.zip`. **When the project
+  changes,** rebuild the zip from a clean copy (top-level folder
+  `bench-cat`, no `.godot`) and paste the scripts into the page again:
+  the Copy boxes must match the zip's scripts exactly, tabs included.
 - **The book prints one address**: the `[CREW URL]` placeholder in the
   book repo. Once that's printed, that URL is permanent.
 

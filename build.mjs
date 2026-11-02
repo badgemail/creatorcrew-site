@@ -42,6 +42,9 @@ const PAGES = [
   // /games/. Source in pages/games/. No nav link and no Home card until
   // Games launches (add `nav: "Games"` to a /games/ index then).
   { src: "pages/games/godot.md", out: "godot/index.html", path: "/godot/" },
+  // Bench Cat (2 November 2026): the Games book's free project (PROMISE-
+  // REGISTER P11), linked from /godot. No nav link or Home card yet.
+  { src: "pages/games/bench-cat.md", out: "bench-cat/index.html", path: "/bench-cat/" },
   { src: "pages/thanks.md", out: "thanks/index.html", path: "/thanks/" },
   { src: "pages/confirmed.md", out: "confirmed/index.html", path: "/confirmed/" },
   { src: "src/404.html", out: "404.html", path: null, title: "Page not found", noindex: true },
@@ -155,6 +158,25 @@ function markdown(md) {
       i++; continue;
     }
     if (/^!\[/.test(line)) throw new Error(`Image needs alt text and a /img/….webp path: ${line}`);
+    // Download button (2 November 2026): a link to a file in /downloads/,
+    // on a line of its own, becomes a button.
+    if ((m = line.match(/^\[([^\]]+)\]\((\/downloads\/[^)\s]+)\)\s*$/))) {
+      if (!existsSync(join(ROOT, "static", m[2]))) throw new Error(`Download missing: static${m[2]}`);
+      out.push(`<p><a class="button" href="${m[2]}" download>${inline(m[1])}</a></p>`);
+      i++; continue;
+    }
+    // Tables (2 November 2026): | header | header |, a |---| line, then
+    // rows. Cells take inline markdown (`code`, **bold**).
+    if (/^\|/.test(line) && i + 1 < lines.length && /^\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
+      const cells = (l) => l.trim().replace(/^\||\|$/g, "").split("|").map((c) => inline(c.trim()));
+      const head = cells(line);
+      i += 2;
+      const rows = [];
+      while (i < lines.length && /^\|/.test(lines[i])) rows.push(cells(lines[i++]));
+      out.push(`<table><thead><tr>${head.map((c) => `<th scope="col">${c}</th>`).join("")}</tr></thead><tbody>` +
+        rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("") + `</tbody></table>`);
+      continue;
+    }
     if ((m = line.match(/^(\s*)([-*]|\d+\.)\s+/))) { // list (with wrapped continuation lines)
       const ordered = /\d/.test(m[2]);
       const start = ordered && parseInt(m[2], 10) !== 1 ? ` start="${parseInt(m[2], 10)}"` : "";
@@ -168,7 +190,7 @@ function markdown(md) {
       out.push(`<${tag}${start}>${items.map((t) => `<li>${inline(t)}</li>`).join("")}</${tag}>`); continue;
     }
     const buf = [];                                   // paragraph
-    while (i < lines.length && !isBlank(lines[i]) && !/^(#{1,3}\s|>|!\[|```|\s*([-*]|\d+\.)\s|---\s*$)/.test(lines[i])) buf.push(lines[i++].trim());
+    while (i < lines.length && !isBlank(lines[i]) && !/^(#{1,3}\s|>|!\[|```|\||\s*([-*]|\d+\.)\s|---\s*$)/.test(lines[i])) buf.push(lines[i++].trim());
     out.push(`<p>${inline(buf.join(" "))}</p>`);
   }
   return out.join("\n");
