@@ -173,7 +173,7 @@ To change the site name, domain or placeholders, edit
   work", word for word from the draft; screenshots `ch7-*.webp`).
   Chapter 12 (5 November 2026): `pages/games/godot-chapter-12.md` at
   **/godot/chapter-12/** (the Windows and web export steps, moved from
-  /godot unchanged; the export templates section stays on /godot).
+  /godot unchanged, starting with the export templates section).
 - **Bench Cat (2 November 2026, not linked from Home):**
   `pages/games/bench-cat.md`, served at **/bench-cat/**, linked from
   /godot's "Code from the book". It's the free Bench Cat project the

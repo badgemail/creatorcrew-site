@@ -9,15 +9,31 @@ Chapter 12 export page (Luke, 5 November 2026): the export steps moved
 here from /godot, text and screenshots unchanged (tested sources:
 DEVICE-TEST-D5 W3–W5, PRE-G3-CHECKS P7; screenshots Luke's, Godot
 4.7.2). The once-only export templates section (with the download-
-failure help and Install from File) stays on /godot, at
-#once-only-the-export-templates; this page links to it.
+failure help and Install from File) moved here from /godot too,
+unchanged, later the same day.
 -->
 
 # Chapter 12: exporting your game
 
 These are the export steps from Chapter 12 of the book.
 
-**Once only, before your first export:** install the export templates. [Godot help](/godot/#once-only-the-export-templates) has the steps, with pictures.
+## Once only: the export templates
+
+Do this with a parent, on a good internet connection.
+
+1. In Godot, open the **Editor** menu, then **Manage Export Templates**.
+2. If Godot says it's offline, click **Go Online**. Godot starts in offline mode, and the download list stays empty until you do.
+
+![The bottom of Godot's Export Template Manager. It says no templates are installed and "Offline mode, some functionality is not available", with Go Online outlined.](/img/godot/templates-go-online.webp)
+
+3. Under **Available Templates**, tick only the two templates this book uses: **Windows x86_64** and **Web Single-Threaded**, then click **Install Selected Templates**. Together they're about 115 MB. Don't click **Install All Templates**: that downloads all of them, about 1 GB.
+
+![Godot's Available Templates list. Windows x86_64 and Web Single-Threaded are ticked and outlined, and so is the Install Selected Templates button at the top.](/img/godot/templates-install-selected.webp)
+
+**If the download fails,** close the window and try again later, or on a different internet connection. If it still fails, security software or a school or work network may be blocking Godot. A parent can get the templates another way:
+
+1. In a web browser, go to [godotengine.org/download](https://godotengine.org/download/) and download **Export templates**. It's one file ending in `.tpz`, about 1 GB.
+2. In Godot's Export Template Manager, click the small file icon beside **Install All Templates**, and pick that file.
 
 ## A Windows game for family
 
