@@ -46,6 +46,7 @@ const PAGES = [
   // This with screenshots, linked from /godot's "Your build, chapter by
   // chapter". One page per chapter, under /godot/.
   { src: "pages/games/godot-chapter-4.md", out: "godot/chapter-4/index.html", path: "/godot/chapter-4/" },
+  { src: "pages/games/godot-chapter-6.md", out: "godot/chapter-6/index.html", path: "/godot/chapter-6/" },
   // Bench Cat (2 November 2026): the Games book's free project (PROMISE-
   // REGISTER P11), linked from /godot. No nav link or Home card yet.
   { src: "pages/games/bench-cat.md", out: "bench-cat/index.html", path: "/bench-cat/" },

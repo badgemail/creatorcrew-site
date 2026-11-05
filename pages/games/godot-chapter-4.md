@@ -141,4 +141,4 @@ That's a build.
 
 ---
 
-**Next:** [Chapter 6, add the laser dot](/godot/#chapter-6-the-laser-dot)
+**Next:** [Chapter 6, add the laser dot](/godot/chapter-6/)

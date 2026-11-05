@@ -16,7 +16,8 @@ Everything else stays in the book.
 Hub (Luke, 5 November 2026): "Your build, chapter by chapter" links to
 one page per chapter (/godot/chapter-4/ first) and to /bench-cat/. The
 Chapter 4 code moved to /godot/chapter-4/; "Code from the book" keeps
-a one-line link to it.
+a one-line link to it. Chapter 6 (5 November 2026): Dot's script moved
+to /godot/chapter-6/, the same way.
 
 Source rule (L5): every step on this page comes from the Before You Start,
 Chapter 4 and Chapter 12 drafts (planning/games/drafts/ in the book repo,
@@ -49,6 +50,7 @@ This page goes with *The Creator Starter Kit: Games*. It has the steps from the 
 ## Your build, chapter by chapter
 
 - [Chapter 4: your first build](/godot/chapter-4/): every step, with a picture of each one.
+- [Chapter 6: add the laser dot](/godot/chapter-6/): the Build along steps, with pictures.
 - [Bench Cat](/bench-cat/): the whole project from Chapters 4, 6 and 7, ready to download, with every line explained.
 
 ## Download and unzip Godot
@@ -131,14 +133,7 @@ The first script and the Try This version are on the [Chapter 4 page](/godot/cha
 
 ### Chapter 6: the laser dot
 
-Dot's script (Build along, step 5):
-
-```gdscript
-extends Sprite2D
-
-func _process(delta):
-	position = get_global_mouse_position()
-```
+Dot's script is on the [Chapter 6 page](/godot/chapter-6/#build-along-add-the-laser-dot), with a picture of each step.
 
 ### Chapter 7: the chase and the thump
 
