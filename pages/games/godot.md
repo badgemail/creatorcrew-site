@@ -17,7 +17,8 @@ Hub (Luke, 5 November 2026): "Your build, chapter by chapter" links to
 one page per chapter (/godot/chapter-4/ first) and to /bench-cat/. The
 Chapter 4 code moved to /godot/chapter-4/; "Code from the book" keeps
 a one-line link to it. Chapter 6 (5 November 2026): Dot's script moved
-to /godot/chapter-6/, the same way.
+to /godot/chapter-6/, the same way. Chapter 7 (5 November 2026):
+Biscuit's script moved to /godot/chapter-7/, the same way.
 
 Source rule (L5): every step on this page comes from the Before You Start,
 Chapter 4 and Chapter 12 drafts (planning/games/drafts/ in the book repo,
@@ -51,6 +52,7 @@ This page goes with *The Creator Starter Kit: Games*. It has the steps from the 
 
 - [Chapter 4: your first build](/godot/chapter-4/): every step, with a picture of each one.
 - [Chapter 6: add the laser dot](/godot/chapter-6/): the Build along steps, with pictures.
+- [Chapter 7: the chase and the thump](/godot/chapter-7/): the Build along steps, with pictures.
 - [Bench Cat](/bench-cat/): the whole project from Chapters 4, 6 and 7, ready to download, with every line explained.
 
 ## Download and unzip Godot
@@ -137,25 +139,7 @@ Dot's script is on the [Chapter 6 page](/godot/chapter-6/#build-along-add-the-la
 
 ### Chapter 7: the chase and the thump
 
-Biscuit's new script (Build along, step 5). It needs the sound node named `Thump`, with a capital T:
-
-```gdscript
-extends Sprite2D
-
-var on_bench = true
-
-func _process(delta):
-	var dot = get_node("../Dot")
-	position = position.move_toward(dot.position, 300 * delta)
-	if on_bench and position.x > 900:
-		on_bench = false
-		land()
-
-func land():
-	$Thump.play()
-	modulate = Color(2, 2, 2)
-	create_tween().tween_property(self, "modulate", Color.WHITE, 0.15)
-```
+Biscuit's new script is on the [Chapter 7 page](/godot/chapter-7/#build-along-the-chase-and-the-thump), with a picture of each step.
 
 ## Exporting your game, with pictures
 

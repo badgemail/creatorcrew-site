@@ -168,6 +168,9 @@ To change the site name, domain or placeholders, edit
   Chapter 6 (5 November 2026): `pages/games/godot-chapter-6.md` at
   **/godot/chapter-6/** (Build along steps 1–6, "If it doesn't work",
   tabs and spaces; screenshots `ch6-*.webp`).
+  Chapter 7 (5 November 2026): `pages/games/godot-chapter-7.md` at
+  **/godot/chapter-7/** (Build along steps 1–6 and "If it doesn't
+  work", word for word from the draft; screenshots `ch7-*.webp`).
 - **Bench Cat (2 November 2026, not linked from Home):**
   `pages/games/bench-cat.md`, served at **/bench-cat/**, linked from
   /godot's "Code from the book". It's the free Bench Cat project the

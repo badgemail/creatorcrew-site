@@ -76,4 +76,4 @@ If Godot says `Used tab character for indentation instead of space`, one line st
 
 ---
 
-**Next:** [Chapter 7, the chase and the thump](/godot/#chapter-7-the-chase-and-the-thump)
+**Next:** [Chapter 7, the chase and the thump](/godot/chapter-7/)
