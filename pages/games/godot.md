@@ -22,8 +22,8 @@ Biscuit's script moved to /godot/chapter-7/, the same way. Chapter 12
 (5 November 2026): the Windows and web export steps moved to
 /godot/chapter-12/, unchanged; the export templates section (with the
 download-failure help and Install from File) followed it there later the
-same day. The old #exporting-your-game-with-pictures and
-#once-only-the-export-templates anchors stay here as short pointers.
+same day. The old #exporting-your-game-with-pictures anchor stays here as a
+short pointer.
 
 Source rule (L5): every step on this page comes from the Before You Start,
 Chapter 4 and Chapter 12 drafts (planning/games/drafts/ in the book repo,
@@ -150,10 +150,6 @@ Biscuit's new script is on the [Chapter 7 page](/godot/chapter-7/#build-along-th
 ## Exporting your game, with pictures
 
 The export steps from Chapter 12 are on their own page now: [Chapter 12: exporting your game](/godot/chapter-12/). It starts with the export templates, which you install once.
-
-### Once only: the export templates
-
-Now on the Chapter 12 page: [the export templates](/godot/chapter-12/#once-only-the-export-templates).
 
 ## More help
 
