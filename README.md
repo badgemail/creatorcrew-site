@@ -159,6 +159,12 @@ To change the site name, domain or placeholders, edit
     22 October 2026): cropped, no ads, no other apps' logos, usernames
     blurred, one Electric Blue (#1E6FF0) outline where the reader
     clicks, at most 1200px wide and under about 200 KB.
+- **Chapter pages (5 November 2026):** /godot/ is the hub for the Games
+  book's Godot help. Its "Your build, chapter by chapter" list links to
+  one page per chapter, starting with `pages/games/godot-chapter-4.md`
+  at **/godot/chapter-4/** (the book's Chapter 4 steps 1–9 and Try This,
+  a screenshot under each step, the Chapter 4 code with Copy buttons),
+  and to /bench-cat/. Screenshots are `static/img/godot/ch4-*.webp`.
 - **Bench Cat (2 November 2026, not linked from Home):**
   `pages/games/bench-cat.md`, served at **/bench-cat/**, linked from
   /godot's "Code from the book". It's the free Bench Cat project the

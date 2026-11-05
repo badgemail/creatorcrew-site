@@ -42,6 +42,10 @@ const PAGES = [
   // /games/. Source in pages/games/. No nav link and no Home card until
   // Games launches (add `nav: "Games"` to a /games/ index then).
   { src: "pages/games/godot.md", out: "godot/index.html", path: "/godot/" },
+  // Chapter 4 walkthrough (5 November 2026): the book's steps 1–9 and Try
+  // This with screenshots, linked from /godot's "Your build, chapter by
+  // chapter". One page per chapter, under /godot/.
+  { src: "pages/games/godot-chapter-4.md", out: "godot/chapter-4/index.html", path: "/godot/chapter-4/" },
   // Bench Cat (2 November 2026): the Games book's free project (PROMISE-
   // REGISTER P11), linked from /godot. No nav link or Home card yet.
   { src: "pages/games/bench-cat.md", out: "bench-cat/index.html", path: "/bench-cat/" },

@@ -1,7 +1,7 @@
 ---
 title: Godot help
-description: Step-by-step help with Godot for readers of The Creator Starter Kit: Games — installing, your projects folder, settings, backups, crash fixes, the code from Chapters 4, 6 and 7 to copy, and exporting your game.
-updated: 29 October 2026 (steps tested on Godot 4.7.2, Windows 11; links checked 22 October 2026)
+description: Step-by-step help with Godot for readers of The Creator Starter Kit: Games — installing, your projects folder, settings, backups, crash fixes, your build chapter by chapter, the code from the book to copy, and exporting your game.
+updated: 5 November 2026 (steps tested on Godot 4.7.2, Windows 11; links checked 22 October 2026)
 ---
 
 <!--
@@ -13,6 +13,10 @@ Widened 29 October 2026 (G6 part 2): the Chapter 6 Dot script and the
 Chapter 7 Biscuit script from the new "Build along" sections, also
 tab-indented.
 Everything else stays in the book.
+Hub (Luke, 5 November 2026): "Your build, chapter by chapter" links to
+one page per chapter (/godot/chapter-4/ first) and to /bench-cat/. The
+Chapter 4 code moved to /godot/chapter-4/; "Code from the book" keeps
+a one-line link to it.
 
 Source rule (L5): every step on this page comes from the Before You Start,
 Chapter 4 and Chapter 12 drafts (planning/games/drafts/ in the book repo,
@@ -38,9 +42,14 @@ web save window are Luke's, Godot 4.7.2, 26 October 2026.
 
 # Godot help
 
-This page goes with *The Creator Starter Kit: Games*. It has the steps from the book's Before You Start, with pictures: installing Godot, your projects folder, three settings, backups, and what to do if Godot crashes. It also has the code from Chapters 4, 6 and 7 to copy, and Chapter 12's export steps with pictures.
+This page goes with *The Creator Starter Kit: Games*. It has the steps from the book's Before You Start, with pictures: installing Godot, your projects folder, three settings, backups, and what to do if Godot crashes. It also links to your build, chapter by chapter, has the code from the book to copy, and Chapter 12's export steps with pictures.
 
 > **For parents:** every step here, from Before You Start, Chapter 4 and Chapter 12, was tested on Godot 4.7.2 on an older Windows 11 laptop, and every link goes to Godot's own website.
+
+## Your build, chapter by chapter
+
+- [Chapter 4: your first build](/godot/chapter-4/): every step, with a picture of each one.
+- [Bench Cat](/bench-cat/): the whole project from Chapters 4, 6 and 7, ready to download, with every line explained.
 
 ## Download and unzip Godot
 
@@ -118,31 +127,7 @@ The whole Bench Cat project, with every line explained, is on the [Bench Cat pag
 
 ### Chapter 4
 
-The first script (step 8):
-
-```gdscript
-extends Sprite2D
-
-func _process(delta):
-	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	position += dir * 200 * delta
-	if position.x > 900:
-		position.x = 900
-```
-
-The Try This version, with the left wall and a speed of 400:
-
-```gdscript
-extends Sprite2D
-
-func _process(delta):
-	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	position += dir * 400 * delta
-	if position.x > 900:
-		position.x = 900
-	if position.x < 64:
-		position.x = 64
-```
+The first script and the Try This version are on the [Chapter 4 page](/godot/chapter-4/#part-2-make-it-move), with a picture of each step.
 
 ### Chapter 6: the laser dot
 
