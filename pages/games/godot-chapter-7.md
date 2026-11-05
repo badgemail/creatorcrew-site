@@ -27,6 +27,8 @@ Your Bench Cat from Chapter 6 has Biscuit and a dot. Now Biscuit chases the dot 
 
 ![Your sound in the FileSystem panel. Its name will be different.](/img/godot/ch7-sound-in-filesystem.webp)
 
+Your sound's name will be different.
+
 2. **Add a sound node.** Click **Biscuit** in the Scene panel, click **+**, type `AudioStreamPlayer2D`, and click **Create**. Double-click it and rename it `Thump`, with a capital T.
 
 ![The Create New Node box with Audio typed in the search. AudioStreamPlayer2D is outlined.](/img/godot/ch7-create-audiostreamplayer2d.webp)

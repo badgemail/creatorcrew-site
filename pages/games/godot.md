@@ -125,7 +125,7 @@ If Godot crashes or won't open a window, check these, in order:
 
 ## Code from the book
 
-Paste it over everything on the script page, then click play.
+Each chapter's code is on its own page, with a picture of every step.
 
 The whole Bench Cat project, with every line explained, is on the [Bench Cat page](/bench-cat/), ready to download.
 
